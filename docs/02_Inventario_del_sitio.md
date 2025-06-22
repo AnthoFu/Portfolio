@@ -100,3 +100,20 @@ Este documento es el inventario central de todo el contenido (textos, imágenes,
 *   **Galería Visual:** [Necesito 2-4 imágenes/GIFs]
 *   **Aprendizajes:** [¿Qué aprendí en este proyecto?]
 ```
+---
+
+## Página: `/contact` (Contacto)
+
+**Objetivo:** Facilitar al máximo el contacto.
+
+### Bloque 1: Invitación
+- [x] **Título:** "Hablemos"
+- [x] **Párrafo:** "Si tienes un proyecto en mente, una pregunta o simplemente quieres saludar, mi bandeja de entrada está siempre abierta. ¡Haré lo posible por responderte!"
+
+### Bloque 2: Método de Contacto
+- [ ] **Email:** Necesito mostrar mi dirección de correo electrónico de forma clara.
+
+### Bloque 3: Otros Canales
+- [x] **Enlaces:** Incluir iconos/enlaces a mi perfil de LinkedIn y GitHub.
+
+---
