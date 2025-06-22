@@ -1,5 +1,5 @@
 # Visión y estrategia del Portafolio de AnthoFu
-* Última actualización: 20/06/2025
+*Última actualización: 20/06/2025*
 
 Bienvenido, lector curioso, o yo mismo del futuro. 🦊
 Este documento establece la visión, objetivos y la estrategia para el rediseño de mi anterior portfolio personal. Este documento servirá como "Mapa" para poder guiarnos durante este viaje.
