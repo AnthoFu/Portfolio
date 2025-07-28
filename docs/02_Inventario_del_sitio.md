@@ -1,36 +1,62 @@
 # Fase 1: Inventario de Contenido
 
-*Última actualización: 22/06/2025*
+*Última actualización: 27/07/2025*
 
-Este documento es el inventario central de todo el contenido (textos, imágenes, enlaces) necesario para cada página del portfolio. Sirve como fuente de verdad para las fases de diseño y desarrollo.
+Este documento es el inventario central de todo el contenido (textos, imágenes, enlaces) necesario para cada página del portfolio. Sirve como fuente de verdad para las fases de diseño y desarrollo, y se actualiza para reflejar las decisiones de diseño.
 
 ---
 
-## Página: `/` (Inicio / Home)
+**Objetivo:** Captar la atención con una identidad visual fuerte, presentarme brevemente y guiar al usuario hacia las secciones clave.
 
-**Objetivo:** Captar la atención en 5 segundos, presentar mi propuesta de valor y guiar al usuario hacia mis proyectos.
+### Bloque 1: Hero Section (`HeroComponent`)
+- [x] **Identidad Visual:**
+  - **Imagen de Fondo:** Imagen con código JavaScript.
+  - **Logo Principal:** Logo de "AnthoFu" en grande, en color naranja.
+- [x] **Texto Principal:**
+  - **Título/Cargo:** "Desarrollador Front-End".
 
-### Bloque 1: Hero Section
-- [x] **Titular Principal:** "Desarrollador Frontend enfocado en limpieza, eficiencia y diseño funcional."
-- [x] **Subtítulo:** "Especializado en Angular y obsesionado con el detalle."
-- [x] **Llamado a la Acción (CTA) Principal:** Botón con texto "Ver mis proyectos".
+---
 
-### Bloque 2: Proyectos Destacados
-- [x] **Título de la sección:** "Algunos de mis proyectos"
+### Bloque 2: Bio Rápida (`QuickBioComponent`)
+- [x] **Objetivo:** Presentarme de forma rápida y visual justo después de la sección Hero.
 - **Contenido:**
-  - **Proyecto 1: Página Web Oficial de la UNEXCA** 🏛️🎓
-    - **Imagen:** ![Preview de la pagina de la unexca en desarrollo](./assets/UNEXCA-Preview.png)
-    - **Enlace:** [Página en desarrollo](https://unexca-website.netlify.app)
-  - **Proyecto 2: AnthoFu's E-Commerce** 🛍️🛒
-    - **Imagen:** ![Preview del AnthoFu's E-Commerce](./assets/Anthos_shop-Preview.png)
-    - **Enlace:** [Repositorio en GitHub](https://github.com/AnthoFu/Angular-17-Platzi)
-  - **Proyecto 3: AnimationLand** 🐇🎮
-    - **Imagen:** ![Preview de AnimationLand](./assets/AnimationLand-Preview.png)
-    - **Enlace:** [Repositorio en GitHub](https://github.com/AnthoFu/bunny-animations)
+  - **Elemento 1 (Cuadro Izquierdo): Fotografía Profesional**
+    - [ ] **Tarea:** Necesito conseguir una foto profesional (headshot) que encaje con el estilo oscuro/tech del sitio.
+  - **Elemento 2 (Rectángulo Derecho): Descripción Breve**
+    - [x] **Título:** "¡Hello, World! Soy AnthoFu 🦊"
+    - [x] **Texto/Borrador:** "Un desarrollador de software apasionado por la tecnología y la creación de soluciones digitales. Me especializo en el ecosistema de Angular, siempre buscando un código limpio y una experiencia de usuario impecable. ¡Explora mis proyectos y hablemos!"
+    
+*Nota: Este texto es un borrador. Puede ser más corto o más largo según encaje en el diseño final.*
 
-### Bloque 3: Llamado a la Acción Secundario
-- [x] **Texto:** "¿Te gusta lo que ves? Hablemos de cómo puedo ayudarte."
-- [x] **Botón:** Texto "Contactar".
+---
+
+### Bloque 3: Navegación Principal (`IntroCardsComponent`)
+- [x] **Objetivo:** Actuar como la navegación principal de la página de inicio.
+- **Contenido:** Tres tarjetas de navegación grandes.
+  - **Tarjeta 1:**
+    - **Texto:** "proyectos"
+    - **Enlace:** Navegará a la ruta `/projects`.
+  - **Tarjeta 2:**
+    - **Texto:** "colaboraciones"
+    - **Enlace:** *(Decisión pendiente: Enlazará a la sección de Experiencia Laboral en la página `/about`)*.
+  - **Tarjeta 3:**
+    - **Texto:** "sobre mi"
+    - **Enlace:** Navegará a la ruta `/about`.
+
+---
+
+### Bloque 4: Proyectos Destacados (`FeaturedProjectsComponent`)
+- [x] **Título de la sección:** "Proyectos Destacados".
+- **Contenido:** Una galería con 3 proyectos clave. Cada proyecto será una instancia de `ProjectCardComponent`.
+  - **Proyecto 1: Página Web Oficial de la UNEXCA** 🏛️🎓
+    - **Imagen/Placeholder:** Espacio visual para la imagen del proyecto.
+    - **Enlace/Texto:** "palabra/enlace" (se reemplazará por el título y enlace real).
+  - **Proyecto 2: AnthoFu's E-Commerce** 🛍️🛒
+    - **Imagen/Placeholder:** Espacio visual para la imagen del proyecto.
+    - **Enlace/Texto:** "palabra/enlace" (se reemplazará por el título y enlace real).
+  - **Proyecto 3: AnimationLand** 🐇🎮
+    - **Imagen/Placeholder:** Espacio visual para la imagen del proyecto.
+    - **Enlace/Texto:** "palabra/enlace" (se reemplazará por el título y enlace real).
 
 ---
 
@@ -40,7 +66,7 @@ Este documento es el inventario central de todo el contenido (textos, imágenes,
 
 ### Bloque 1: Introducción Personal
 - [ ] **Fotografía:** Necesito conseguir una foto profesional pero accesible.
-- [x] **Párrafo Narrativo:** "Hola, soy Anthony Fuentes (AnthoFu). Desde pequeño me ha gustado ver código, la primera vez que manipulé uno fue con el 'inspeccionar' de Chrome en una pagina de juegos online. Intenté cambiar la cantidad de dinero de una moneda virtual que tenía la página pero nunca se guardaba, jajaja. Me gusta mucho la tecnología; ser capaz de crear cualquier cosa mediante código es emocionante, y la sensación de ver una app web en producción o que la gente utilice un programa que he hecho es increíble. ♥️"
+- [x] **Párrafo Narrativo:** "Hola, soy Anthony Fuentes. Desde pequeño me ha gustado ver código, la primera vez que manipulé uno fue con el 'inspeccionar' de Chrome en una pagina de juegos online. Intenté cambiar la cantidad de dinero de una moneda virtual que tenía la página pero nunca se guardaba, jajaja. Me gusta mucho la tecnología; ser capaz de crear cualquier cosa mediante código es emocionante, y la sensación de ver una app web en producción o que la gente utilice un programa que he hecho es increíble. ♥️"
 
 ### Bloque 2: Habilidades (Skills)
 - [x] **Título de la sección:** "Habilidades Técnicas"
@@ -62,7 +88,7 @@ Este documento es el inventario central de todo el contenido (textos, imágenes,
     - Colaboración en la migración del ERP de Odoo 15 a Odoo 17.
     - Creación de reglas de automatización en Odoo.
     - Gestión de permisos y roles para usuarios en Odoo 17.
-- [ ] **Botón:** "Descargar mi CV" (necesito preparar el archivo PDF).
+- [x] **Botón:** "Descargar mi CV" (Tengo que tener actualizado el PDF o un enlace a la versión más reciente).
 
 ---
 
@@ -102,18 +128,25 @@ Este documento es el inventario central de todo el contenido (textos, imágenes,
 ```
 ---
 
-## Página: `/contact` (Contacto)
 
-**Objetivo:** Facilitar al máximo el contacto.
+## Componentes Globales / Layout
 
-### Bloque 1: Invitación
-- [x] **Título:** "Hablemos"
-- [x] **Párrafo:** "Si tienes un proyecto en mente, una pregunta o simplemente quieres saludar, mi bandeja de entrada está siempre abierta. ¡Haré lo posible por responderte!"
+Esta sección describe elementos que aparecen en múltiples páginas o forman parte del layout principal.
 
-### Bloque 2: Método de Contacto
-- [ ] **Email:** Necesito mostrar mi dirección de correo electrónico de forma clara.
+### Barra de Navegación Lateral (`SidebarComponent`)
+- [x] **Elemento 1: Logo.** Enlace a la página de inicio (`/`).
+- [x] **Elemento 2: Navegación Principal.**
+    - Icono Home -> `/`
+    - Icono Sobre Mí -> `/about`
+    - Icono Proyectos -> `/projects`
 
-### Bloque 3: Otros Canales
-- [x] **Enlaces:** Incluir iconos/enlaces a mi perfil de LinkedIn y GitHub.
-
----
+### Contacto Flotante (`FloatingContactComponent`)
+- [x] **Objetivo:** Proporcionar acceso directo y persistente a mis perfiles y email, reemplazando la página de contacto tradicional.
+- [x] **Diseño:** Tres círculos naranjas, probablemente en la esquina inferior derecha.
+- **Contenido:**
+  - **Círculo 1:** Icono de LinkedIn.
+    - **Acción:** Enlazar a mi perfil de LinkedIn.
+  - **Círculo 2:** Icono de Email.
+    - **Acción:** Abrir el cliente de correo del usuario con mi email pre-rellenado (`mailto:anthony.fuentes2005@gmail.com`).
+  - **Círculo 3:** Icono de GitHub.
+    - **Acción:** Enlazar a mi perfil de GitHub.
