@@ -1,10 +1,30 @@
-<header>
-  <nav>
-    <a routerLink="/">Home</a>
-    <a routerLink="/about">About</a>
-    <a routerLink="/projects">Projects</a>
-  </nav>
+<header class="header">
+  <div class="hamburger-menu" (click)="toggleMenu()">
+    <div class="line" [ngClass]="{'open': isMenuOpen}"></div>
+    <div class="line" [ngClass]="{'open': isMenuOpen}"></div>
+    <div class="line" [ngClass]="{'open': isMenuOpen}"></div>
+  </div>
+
+  <div class="top-logo">
+    <img src="images/Anthofu_Icon.png" alt="AnthoFu Icon">
+  </div>
 </header>
+
+<nav class="side-nav" [ngClass]="{'open': isMenuOpen}">
+  <ul class="nav-links">
+    <li><a routerLink="/" routerLinkActive="active" (click)="closeMenu()">HOME</a></li>
+    <li><a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">ABOUT ME</a></li>
+    <li><a routerLink="/projects" routerLinkActive="active" (click)="closeMenu()">PROJECTS</a></li>
+  </ul>
+</nav>
+
+<div class="overlay" *ngIf="isMenuOpen" (click)="closeMenu()"></div>
+
+<div class="floating-contact">
+  <a href="https://instagram.com" target="_blank" class="contact-circle instagram"></a>
+  <a href="https://linkedin.com" target="_blank" class="contact-circle linkedin"></a>
+  <a href="mailto:your-email@gmail.com" class="contact-circle gmail"></a>
+</div>
 
 <main>
   <router-outlet />

@@ -1,0 +1,121 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: var(--azul-1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  z-index: 1000;
+
+  .hamburger-menu {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    .line {
+      width: 30px;
+      height: 3px;
+      background-color: var(--blanco);
+      transition: all 0.3s ease;
+
+      &.open:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+      &.open:nth-child(2) { opacity: 0; }
+      &.open:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+    }
+  }
+
+  .top-logo img {
+    height: 40px;
+  }
+}
+
+.side-nav {
+  position: fixed;
+  top: 60px;
+  left: -250px;
+  width: 250px;
+  height: calc(100% - 60px);
+  background-color: var(--azul-1);
+  transition: all 0.3s ease;
+  z-index: 999;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+
+  &.open {
+    left: 0;
+  }
+
+  .nav-links {
+    list-style: none;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+
+    li {
+      margin: 1rem 0;
+
+      a {
+        text-decoration: none;
+        color: var(--blanco);
+        font-size: 1.2rem;
+        padding-left: 2rem;
+        display: block;
+        transition: all 0.3s;
+
+        &.active {
+          color: var(--naranja);
+          border-left: 4px solid var(--naranja);
+        }
+
+        &:hover {
+          color: var(--naranja);
+        }
+      }
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 60px);
+  background-color: rgba(0,0,0,0.4);
+  z-index: 998;
+}
+
+.floating-contact {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  z-index: 1001; // Above the header
+
+  .contact-circle {
+    width: 45px;
+    height: 45px;
+    background-color: var(--naranja);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+    text-decoration: none;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+main {
+  padding-top: 60px; // To prevent content from going under the fixed header
+}

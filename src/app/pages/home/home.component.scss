@@ -1,0 +1,170 @@
+.hero-section {
+  background-color: var(--azul-2);
+  padding: 6rem 1.5rem 4rem; // Aumentamos el espacio vertical
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 60vh; // Aseguramos que tenga buen protagonismo en pantalla
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .code-bg-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3; // Un poco más de opacidad para el fondo de código
+    background: linear-gradient(to bottom, rgba(22, 19, 42, 0.5), var(--azul-2));
+    // Aquí irá la imagen de fondo con el código
+  }
+
+  .main-title {
+    font-size: 3.5rem; // Tamaño imponente para el título
+    color: var(--naranja); // Color naranja de tu paleta
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+
+    .icon-container {
+      display: inline-flex;
+      align-items: center;
+      
+      img {
+        height: 5rem; // Tamaño del icono
+        width: auto;
+      }
+    }
+  }
+
+  .subtitle {
+    font-size: 1.1rem; // Reducimos el tamaño
+    color: var(--blanco);
+    font-weight: 400; // Menos peso visual
+    letter-spacing: 0.5px;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+    opacity: 0.9; // Un poco menos de contraste para el subtítulo
+  }
+
+  .profile-photo-placeholder {
+    width: 200px;
+    height: 250px;
+    background-color: var(--blanco);
+    margin: 0 auto;
+    border-radius: 50px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+}
+
+.intro-section {
+  background-color: var(--azul-2);
+  padding: 0 1.5rem 2rem;
+
+  .intro-card {
+    background-color: var(--blanco);
+    padding: 2.5rem 1.5rem;
+    border-radius: 60px 60px 0 0;
+    text-align: center;
+    color: var(--azul-2);
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 800;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+
+    .cv-button {
+      background-color: var(--azul-1);
+      color: var(--naranja);
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+  }
+}
+
+.projects-preview {
+  background-color: var(--blanco);
+  padding: 2rem 1.5rem;
+  text-align: center;
+
+  .section-title {
+    color: var(--naranja);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .project-card-placeholder {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: var(--azul-1);
+    border-radius: 60px 5px 60px 5px; // Asymmetric corners as seen in image 3
+    margin: 0 auto;
+  }
+}
+
+.more-about {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  background-color: var(--azul-2);
+  position: relative;
+
+  .section-title {
+    color: var(--blanco);
+    margin-bottom: 2rem;
+    opacity: 0.8;
+  }
+
+  .about-card-placeholder {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+
+    .blue-border-box {
+      width: 100%;
+      height: 100%;
+      background-color: var(--azul-1);
+      border-radius: 40px;
+    }
+
+    .orange-circles {
+      position: absolute;
+      right: 5%;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      span {
+        width: 40px;
+        height: 40px;
+        background-color: var(--naranja);
+        border-radius: 50%;
+      }
+    }
+  }
+}

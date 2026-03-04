@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+/* Variables globales para el manejo de la paleta de colores*/
+:root {
+  --azul-1: #25214E;
+  --azul-2: #16132A;
+  --blanco: #F2F2F2;
+  --naranja: #F39200;
+}
+
+/* Estilos basicos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif; // Aqui vamos a cambiar la fuente mas adelante, para utilizar la misma de mi logo
+  background-color: var(--azul-2);
+  color: var(--blanco);
+}
