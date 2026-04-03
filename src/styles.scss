@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@font-face {
+  font-family: 'Mono Bold';
+  src: url('assets/fonts/Mono-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Variables globales para el manejo de la paleta de colores*/
 :root {
   --azul-1: #25214E;
@@ -14,7 +23,11 @@
 }
 
 body {
-  font-family: Arial, sans-serif; // Aqui vamos a cambiar la fuente mas adelante, para utilizar la misma de mi logo
+  font-family: 'Roboto', sans-serif;
   background-color: var(--azul-2);
   color: var(--blanco);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Mono Bold', sans-serif;
 }
