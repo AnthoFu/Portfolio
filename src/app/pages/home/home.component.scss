@@ -75,6 +75,8 @@
 .intro-section {
   background-color: var(--azul-2);
   padding: 0 1.5rem 2rem;
+  display: flex;
+  justify-content: center;
 
   .intro-card {
     background-color: var(--blanco);
@@ -82,6 +84,8 @@
     border-radius: 60px 60px 0 0;
     text-align: center;
     color: var(--azul-2);
+    width: 87vw; // Unified width
+    box-sizing: border-box;
 
     h2 {
       font-size: 1.5rem;
@@ -113,8 +117,9 @@
 
 .projects-preview {
   background-color: var(--blanco);
-  padding: 2rem 1.5rem;
+  padding: 2rem 0;
   text-align: center;
+  overflow: hidden;
 
   .section-title {
     color: var(--naranja);
@@ -122,20 +127,40 @@
     font-size: 1.8rem;
   }
 
-  .project-card-placeholder {
+  .cards-container {
+    display: flex;
     width: 100%;
+    box-sizing: border-box;
+  }
+
+  .card-slide {
+    flex: 0 0 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .project-card-placeholder {
+    width: 87vw; // Unified width
     aspect-ratio: 1/1;
     background-color: var(--azul-1);
-    border-radius: 60px 5px 60px 5px; // Asymmetric corners as seen in image 3
-    margin: 0 auto;
+    border-radius: 60px 5px 60px 5px;
+    cursor: grab;
+    user-select: none;
+    transition: transform 0.3s ease-out;
+
+    &:active {
+      cursor: grabbing;
+    }
   }
 }
 
 .more-about {
-  padding: 3rem 1.5rem;
+  padding: 3rem 0;
   text-align: center;
   background-color: var(--azul-2);
   position: relative;
+  overflow: hidden;
 
   .section-title {
     color: var(--naranja);
@@ -150,11 +175,31 @@
     display: flex;
     justify-content: center;
 
-    .blue-border-box {
+    .cards-container {
+      display: flex;
       width: 100%;
+      height: 100%;
+    }
+
+    .card-slide {
+      flex: 0 0 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .blue-border-box {
+      width: 87vw; // Unified width
       height: 100%;
       background-color: var(--azul-1);
       border-radius: 40px;
+      cursor: grab;
+      user-select: none;
+      transition: transform 0.3s ease-out;
+
+      &:active {
+        cursor: grabbing;
+      }
     }
 
     .orange-circles {
