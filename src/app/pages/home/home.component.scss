@@ -16,9 +16,14 @@
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.3; // Un poco más de opacidad para el fondo de código
-    background: linear-gradient(to bottom, rgba(22, 19, 42, 0.5), var(--azul-2));
-    // Aquí irá la imagen de fondo con el código
+    //opacity: 0.6; // Increased opacity to see the code better
+    background-image: linear-gradient(to bottom, rgba(22, 19, 42, 0.4), var(--azul-2)), url('/images/banner-cel.png');
+    background-size: cover;
+    background-position: center;
+
+    @media (min-width: 768px) {
+      background-image: linear-gradient(to bottom, rgba(22, 19, 42, 0.4), var(--azul-2)), url('/images/banner-pc.png');
+    }
   }
 
   .main-title {
@@ -98,6 +103,7 @@
       padding: 1rem 2.5rem;
       border-radius: 20px;
       font-weight: bold;
+      font-family: 'Mono Bold', sans-serif;
       font-size: 1.1rem;
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
