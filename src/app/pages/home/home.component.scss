@@ -1,10 +1,10 @@
 .hero-section {
   background-color: var(--azul-2);
-  padding: 6rem 1.5rem 4rem; // Aumentamos el espacio vertical
+  padding: 6rem 1.5rem 4rem;
   text-align: center;
   position: relative;
   overflow: hidden;
-  min-height: 60vh; // Aseguramos que tenga buen protagonismo en pantalla
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,7 +16,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    //opacity: 0.6; // Increased opacity to see the code better
     background-image: linear-gradient(to bottom, rgba(22, 19, 42, 0.4), var(--azul-2)), url('/images/banner-cel.png');
     background-size: cover;
     background-position: center;
@@ -27,8 +26,8 @@
   }
 
   .main-title {
-    font-size: 3.5rem; // Tamaño imponente para el título
-    color: var(--naranja); // Color naranja de tu paleta
+    font-size: 3.5rem;
+    color: var(--naranja);
     font-weight: 800;
     display: flex;
     align-items: center;
@@ -43,7 +42,7 @@
       align-items: center;
       
       img {
-        height: 5rem; // Tamaño del icono
+        height: 5rem;
         width: auto;
       }
     }
@@ -51,14 +50,14 @@
 
   .subtitle {
     font-family: 'Mono Bold', sans-serif;
-    font-size: 1.1rem; // Reducimos el tamaño
+    font-size: 1.1rem;
     color: var(--blanco);
-    font-weight: 500; // Un poco más de peso para la fuente mono
+    font-weight: 500;
     letter-spacing: 0.5px;
     margin-bottom: 3rem;
     position: relative;
     z-index: 1;
-    opacity: 1; // Máxima visibilidad
+    opacity: 1;
   }
 
   .profile-photo-placeholder {
@@ -85,7 +84,7 @@
     border-radius: 60px 60px 0 0;
     text-align: center;
     color: var(--azul-2);
-    width: 87vw; // Unified width
+    width: 87vw;
     box-sizing: border-box;
 
     h2 {
@@ -116,6 +115,28 @@
   }
 }
 
+.cards-container {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.3s ease-out;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.card-slide {
+  flex: 0 0 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
 .projects-preview {
   background-color: var(--blanco);
   padding: 2rem 0;
@@ -128,30 +149,63 @@
     font-size: 1.8rem;
   }
 
-  .cards-container {
+  .project-card {
+    background-color: var(--blanco);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 87vw;
+    max-width: 400px;
     display: flex;
-    width: 100%;
-    box-sizing: border-box;
-  }
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  .card-slide {
-    flex: 0 0 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
 
-  .project-card-placeholder {
-    width: 87vw; // Unified width
-    aspect-ratio: 1/1;
-    background-color: var(--azul-1);
-    border-radius: 60px 5px 60px 5px;
-    cursor: grab;
-    user-select: none;
-    transition: transform 0.3s ease-out;
+    .card-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
 
-    &:active {
-      cursor: grabbing;
+    .card-content {
+      padding: 1.5rem;
+      text-align: left;
+      color: var(--azul-2);
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin: 0 0 0.5rem;
+    }
+
+    .card-description {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin: 0 0 1.5rem;
+      flex-grow: 1;
+    }
+
+    .card-button {
+      background-color: var(--naranja);
+      color: var(--blanco);
+      padding: 0.8rem 1.5rem;
+      border-radius: 15px;
+      text-decoration: none;
+      font-weight: bold;
+      align-self: flex-start;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #e67e22; 
+      }
     }
   }
 }
@@ -169,53 +223,57 @@
     font-size: 1.8rem;
   }
 
-  .about-card-placeholder {
-    position: relative;
-    width: 100%;
+  .about-card {
+    background-color: var(--azul-1);
+    border-radius: 40px;
+    width: 87vw;
+    max-width: 400px;
     height: 400px;
+    padding: 2rem;
+    box-sizing: border-box;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    color: var(--blanco);
+    transition: transform 0.3s ease;
 
-    .cards-container {
-      display: flex;
-      width: 100%;
-      height: 100%;
+     &:hover {
+      transform: scale(1.05);
     }
 
-    .card-slide {
-      flex: 0 0 100vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .card-icon {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 1.5rem;
     }
 
-    .blue-border-box {
-      width: 87vw; // Unified width
-      height: 100%;
-      background-color: var(--azul-1);
-      border-radius: 40px;
-      cursor: grab;
-      user-select: none;
-      transition: transform 0.3s ease-out;
-
-      &:active {
-        cursor: grabbing;
-      }
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin: 0 0 1rem;
     }
 
-    .orange-circles {
-      position: absolute;
-      right: 5%;
-      bottom: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
+    .card-description {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin: 0 0 2rem;
+      flex-grow: 1;
+    }
 
-      span {
-        width: 40px;
-        height: 40px;
+    .card-button-outline {
+      border: 2px solid var(--naranja);
+      color: var(--naranja);
+      padding: 0.8rem 2rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: 'Mono Bold', sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
+
+      &:hover {
         background-color: var(--naranja);
-        border-radius: 50%;
+        color: var(--blanco);
       }
     }
   }
