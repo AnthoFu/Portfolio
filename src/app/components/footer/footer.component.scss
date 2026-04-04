@@ -1,0 +1,106 @@
+.footer {
+  background-color: var(--azul-1);
+  padding: 2.5rem 10% 4rem; // More compact vertical padding
+  color: var(--blanco);
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  border-radius: 60px 60px 0 0;
+  margin-top: 2rem;
+  box-sizing: border-box;
+
+  @media (min-width: 768px) {
+    padding: 2rem 5% 2rem;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem; // Reduced gap
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  }
+
+  .footer-logo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      width: auto;
+    }
+
+    .logo-text {
+      font-family: 'Mono Bold', sans-serif;
+      font-size: 1.5rem; // Much smaller
+      color: var(--naranja);
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin: 0;
+
+      .icon-container {
+        display: inline-flex;
+        align-items: center;
+        
+        img {
+          height: 1.8rem; // Smaller icon
+          width: auto;
+          margin: 0 0.1rem;
+        }
+      }
+    }
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem; // Tighter links
+    width: 100%;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      gap: 2rem;
+      width: auto;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--blanco);
+      font-weight: 500;
+      font-size: 0.85rem; // Smaller links
+      letter-spacing: 1px;
+      transition: color 0.3s ease;
+
+      &:hover, &.active {
+        color: var(--naranja);
+      }
+    }
+  }
+
+  .footer-bottom {
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    font-size: 0.75rem; // More subtle bottom text
+    opacity: 0.6;
+
+    p {
+      margin-bottom: 0.3rem;
+    }
+
+    .built-with {
+      font-style: italic;
+
+      .heart {
+        color: var(--naranja);
+      }
+    }
+  }
+}

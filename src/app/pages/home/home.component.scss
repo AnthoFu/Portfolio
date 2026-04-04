@@ -50,14 +50,15 @@
   }
 
   .subtitle {
+    font-family: 'Mono Bold', sans-serif;
     font-size: 1.1rem; // Reducimos el tamaño
     color: var(--blanco);
-    font-weight: 400; // Menos peso visual
+    font-weight: 500; // Un poco más de peso para la fuente mono
     letter-spacing: 0.5px;
     margin-bottom: 3rem;
     position: relative;
     z-index: 1;
-    opacity: 0.9; // Un poco menos de contraste para el subtítulo
+    opacity: 1; // Máxima visibilidad
   }
 
   .profile-photo-placeholder {
