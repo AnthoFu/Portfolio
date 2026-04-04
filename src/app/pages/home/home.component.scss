@@ -149,7 +149,7 @@
     font-size: 1.8rem;
   }
 
-  .project-card {
+  .project-card, .see-more-card {
     background-color: var(--blanco);
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -159,7 +159,10 @@
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 430px; 
+  }
 
+  .project-card {
     &:hover {
       transform: translateY(-10px);
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
@@ -206,6 +209,32 @@
       &:hover {
         background-color: #e67e22; 
       }
+    }
+  }
+
+  .see-more-card {
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: var(--azul-1);
+    color: var(--naranja);
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(34, 40, 80, 0.25);
+      background-color: var(--azul-2);
+    }
+
+    .see-more-icon {
+      font-size: 4rem;
+      font-weight: 300;
+      line-height: 1;
+    }
+
+    .see-more-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-top: 0.5rem;
     }
   }
 }
