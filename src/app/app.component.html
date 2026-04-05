@@ -12,7 +12,7 @@
 
 <nav class="side-nav" [ngClass]="{'open': isMenuOpen}">
   <ul class="nav-links">
-    <li><a routerLink="/" routerLinkActive="active" (click)="closeMenu()">HOME</a></li>
+    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">HOME</a></li>
     <li><a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">ABOUT ME</a></li>
     <li><a routerLink="/projects" routerLinkActive="active" (click)="closeMenu()">PROJECTS</a></li>
   </ul>
