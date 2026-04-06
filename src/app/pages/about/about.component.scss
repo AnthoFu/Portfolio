@@ -1,0 +1,134 @@
+.about-container {
+  padding: 2rem 1.5rem;
+  background-color: var(--azul-2);
+  color: var(--blanco);
+
+  .section-title {
+    font-size: 2rem;
+    color: var(--naranja);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 800;
+  }
+
+  .about-me {
+    margin-bottom: 3rem;
+
+    .about-card {
+      background-color: var(--azul-1);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+
+      .profile-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin: 0 auto 1.5rem;
+        object-fit: cover;
+      }
+
+      p {
+        line-height: 1.6;
+      }
+    }
+  }
+
+  .tech-stack {
+    margin-bottom: 3rem;
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+
+      .stack-category {
+        h3 {
+          font-size: 1.2rem;
+          color: var(--naranja);
+          margin-bottom: 1rem;
+        }
+
+        .tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+
+          .tag {
+            background-color: var(--azul-1);
+            color: var(--blanco);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+
+  .experience {
+    .experience-card {
+      background-color: var(--azul-1);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+
+      .experience-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        .company-logo {
+          width: 60px;
+          height: 60px;
+          background-color: var(--blanco);
+          border-radius: 10px;
+          margin-right: 1rem;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-shrink: 0;
+
+          img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+          }
+        }
+
+        .company-info {
+          h3 {
+            font-size: 1.2rem;
+            margin: 0;
+          }
+          p {
+            margin: 0;
+            color: var(--naranja);
+          }
+        }
+      }
+
+      .experience-date {
+        font-style: italic;
+        color: var(--naranja);
+        margin-bottom: 1rem;
+      }
+
+      .experience-description {
+        line-height: 1.6;
+      }
+    }
+
+    .experience-placeholder {
+      background-color: var(--azul-1);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      
+      h3 {
+        color: var(--naranja);
+      }
+    }
+  }
+}
