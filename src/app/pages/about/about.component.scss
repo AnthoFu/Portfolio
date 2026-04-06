@@ -159,6 +159,11 @@
           max-height: 85%;
           object-fit: contain;
         }
+
+        i {
+          font-size: 1.8rem;
+          color: var(--azul-1);
+        }
       }
 
       .company-info {
@@ -188,18 +193,41 @@
       color: var(--blanco);
       font-size: 0.95rem;
     }
-  }
 
-  .experience-placeholder {
-    background-color: var(--azul-1);
-    border-radius: 20px;
-    padding: 2.5rem;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    
-    h3 {
-      color: var(--naranja);
-      margin: 0;
+    &.placeholder {
+      background-color: rgba(255, 255, 255, 0.03);
+      border: 2px dashed rgba(255, 255, 255, 0.15);
+      box-shadow: none;
+      filter: grayscale(1);
+      opacity: 0.6;
+      transition: all 0.3s ease;
+
+      .company-logo {
+        background-color: rgba(255, 255, 255, 0.05);
+        box-shadow: none;
+        
+        i {
+          color: rgba(255, 255, 255, 0.3);
+        }
+      }
+
+      .company-info {
+        h3 { color: rgba(255, 255, 255, 0.4); }
+        p { color: rgba(255, 255, 255, 0.3); }
+      }
+
+      .experience-date {
+        color: rgba(255, 255, 255, 0.2);
+      }
+
+      .experience-description {
+        color: rgba(255, 255, 255, 0.3);
+      }
+
+      &:hover {
+        opacity: 0.8;
+        border-color: rgba(255, 255, 255, 0.3);
+      }
     }
   }
 }
