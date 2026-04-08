@@ -9,30 +9,32 @@
 </section>
 
 <section class="projects-showcase">
-  <div class="content">
-    <div class="project-card" *ngFor="let project of projects; let i = index">
-      
-      <div class="main-image-container">
-        <img [src]="project.images[project.selectedImageIndex]" alt="Project main image" class="main-image">
-      </div>
-      
-      <div class="thumbnails-container">
-        <div 
-          class="thumbnail" 
-          *ngFor="let img of project.images; let j = index"
-          [class.active]="project.selectedImageIndex === j"
-          (click)="selectImage(i, j)"
-        >
-          <div class="thumbnail-circle">
-            <img [src]="img" alt="Project thumbnail">
+  <div class="cards-container" appSwipeable>
+    <div class="card-slide" *ngFor="let project of projects; let i = index">
+      <div class="project-card">
+        
+        <div class="main-image-container">
+          <img [src]="project.images[project.selectedImageIndex]" alt="Project main image" class="main-image">
+        </div>
+        
+        <div class="thumbnails-container">
+          <div 
+            class="thumbnail" 
+            *ngFor="let img of project.images; let j = index"
+            [class.active]="project.selectedImageIndex === j"
+            (click)="selectImage(i, j)"
+          >
+            <div class="thumbnail-circle">
+              <img [src]="img" alt="Project thumbnail">
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="card-content">
-        <h3 class="project-title">{{ project.title }}</h3>
-        <p class="project-description">{{ project.description }}</p>
-        <button class="card-button">More information</button>
+        <div class="card-content">
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-description">{{ project.description }}</p>
+          <button class="card-button">More information</button>
+        </div>
       </div>
     </div>
   </div>
