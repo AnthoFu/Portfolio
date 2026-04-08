@@ -1,1 +1,53 @@
-<p>project-details works!</p>
+<div class="project-modal-overlay" *ngIf="project">
+  <div class="project-card-details">
+    <div class="gallery-section">
+      <div class="main-image">
+        <img [src]="project.images[project.selectedImageIndex]" alt="Project preview">
+      </div>
+      <div class="thumbnails">
+        <div 
+          class="thumb" 
+          *ngFor="let img of project.images; let i = index" 
+          [class.active]="project.selectedImageIndex === i"
+          (click)="project.selectedImageIndex = i"
+        >
+          <img [src]="img" alt="Thumbnail">
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <p class="project-period">{{ project.period }}</p>
+      <h1 class="project-title">{{ project.title }}</h1>
+      
+      <div class="project-description">
+        <p>{{ project.description }}</p>
+      </div>
+
+      <div class="tech-stack">
+        <div class="tech-tag" *ngFor="let tech of project.technologies">
+          <span class="tech-icon"></span>
+          {{ tech }}
+        </div>
+      </div>
+
+      <div class="actions">
+        <a [href]="project.repository" target="_blank" class="btn-action">
+          View Code
+        </a>
+        <a [href]="project.liveDemo" target="_blank" class="btn-action">
+          Live Demo
+        </a>
+      </div>
+    </div>
+
+    <a routerLink="/projects" class="close-btn">
+      <span class="back-icon">←</span> Back
+    </a>
+  </div>
+</div>
+
+<div class="not-found" *ngIf="!project">
+  <p>Project not found.</p>
+  <a routerLink="/projects">Back to projects</a>
+</div>

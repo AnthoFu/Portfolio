@@ -33,7 +33,7 @@
         <div class="card-content">
           <h3 class="project-title">{{ project.title }}</h3>
           <p class="project-description">{{ project.description }}</p>
-          <button class="card-button">More information</button>
+          <a [routerLink]="['/projects', project.slug]" class="card-button">More information</a>
         </div>
       </div>
     </div>
