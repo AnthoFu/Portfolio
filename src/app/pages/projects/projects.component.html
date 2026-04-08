@@ -12,8 +12,6 @@
   <div class="content">
     <div class="project-card" *ngFor="let project of projects; let i = index">
       
-      <h3 class="project-title">{{ project.title }}</h3>
-
       <div class="main-image-container">
         <img [src]="project.images[project.selectedImageIndex]" alt="Project main image" class="main-image">
       </div>
@@ -31,9 +29,10 @@
         </div>
       </div>
 
-      <div class="card-info">
+      <div class="card-content">
+        <h3 class="project-title">{{ project.title }}</h3>
         <p class="project-description">{{ project.description }}</p>
-        <button class="more-info-btn">More information</button>
+        <button class="card-button">More information</button>
       </div>
     </div>
   </div>
