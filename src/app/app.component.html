@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" [ngClass]="{'menu-open': isMenuOpen}">
   <div class="hamburger-menu" (click)="toggleMenu()">
     <div class="line" [ngClass]="{'open': isMenuOpen}"></div>
     <div class="line" [ngClass]="{'open': isMenuOpen}"></div>
@@ -12,10 +12,31 @@
 
 <nav class="side-nav" [ngClass]="{'open': isMenuOpen}">
   <ul class="nav-links">
-    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">HOME</a></li>
-    <li><a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">ABOUT ME</a></li>
-    <li><a routerLink="/projects" routerLinkActive="active" (click)="closeMenu()">PROJECTS</a></li>
+    <li>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">
+        <i class="fa-solid fa-house"></i> HOME
+      </a>
+    </li>
+    <li>
+      <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">
+        <i class="fa-solid fa-user"></i> ABOUT ME
+      </a>
+    </li>
+    <li>
+      <a routerLink="/projects" routerLinkActive="active" (click)="closeMenu()">
+        <i class="fa-solid fa-code"></i> PROJECTS
+      </a>
+    </li>
   </ul>
+
+  <div class="side-nav-footer">
+    <div class="social-links">
+      <a href="https://github.com/AnthoFu" target="_blank"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/anthofu/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/anthonyxa.fuentes/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+    <p class="copyright">© 2026 AnthoFu</p>
+  </div>
 </nav>
 
 <div class="overlay" *ngIf="isMenuOpen" (click)="closeMenu()"></div>

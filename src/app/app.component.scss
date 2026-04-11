@@ -8,42 +8,56 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   z-index: 1000;
+  transition: background-color 0.3s ease;
+
+  &.menu-open {
+    background-color: transparent; // Make transparent when menu is open for unified look
+  }
 
   .hamburger-menu {
     cursor: pointer;
     display: flex;
     flex-direction: column;
     gap: 5px;
+    z-index: 1001; // Ensure it stays on top
 
     .line {
-      width: 30px;
-      height: 3px;
+      width: 25px;
+      height: 2px;
       background-color: var(--blanco);
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-      &.open:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
-      &.open:nth-child(2) { opacity: 0; }
-      &.open:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+      &.open:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+      &.open:nth-child(2) { opacity: 0; transform: translateX(-20px); }
+      &.open:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
     }
   }
 
-  .top-logo img {
-    height: 40px;
+  .top-logo {
+    z-index: 1001;
+    img {
+      height: 35px;
+    }
   }
 }
 
 .side-nav {
   position: fixed;
-  top: 60px;
-  left: -250px;
-  width: 250px;
-  height: calc(100% - 60px);
-  background-color: var(--azul-1);
-  transition: all 0.3s ease;
+  top: 0;
+  left: -280px;
+  width: 280px;
+  height: 100vh;
+  background-color: rgba(37, 33, 78, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 999;
-  box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+  box-shadow: 10px 0 30px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
 
   &.open {
     left: 0;
@@ -54,40 +68,116 @@
     padding: 2rem 0;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 
     li {
-      margin: 1rem 0;
+      margin: 0.5rem 0;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.4s ease;
+
+      @for $i from 1 through 3 {
+        &:nth-child(#{$i}) {
+          transition-delay: 0.1s * $i;
+        }
+      }
 
       a {
         text-decoration: none;
         color: var(--blanco);
-        font-size: 1.2rem;
-        padding-left: 2rem;
-        display: block;
+        font-size: 1.1rem;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+        padding: 1rem 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
         transition: all 0.3s;
+        border-left: 4px solid transparent;
+
+        i {
+          font-size: 1.2rem;
+          width: 25px;
+          text-align: center;
+          color: rgba(242, 242, 242, 0.6);
+          transition: color 0.3s;
+        }
 
         &.active {
           color: var(--naranja);
+          background: rgba(243, 146, 0, 0.1);
           border-left: 4px solid var(--naranja);
+          
+          i {
+            color: var(--naranja);
+          }
         }
 
         &:hover {
+          background: rgba(255, 255, 255, 0.05);
+          padding-left: 2.5rem;
           color: var(--naranja);
+          
+          i {
+            color: var(--naranja);
+          }
         }
       }
+    }
+  }
+
+  &.open .nav-links li {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .side-nav-footer {
+    padding: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+
+      a {
+        color: var(--blanco);
+        font-size: 1.2rem;
+        transition: all 0.3s;
+        opacity: 0.7;
+
+        &:hover {
+          color: var(--naranja);
+          opacity: 1;
+          transform: translateY(-3px);
+        }
+      }
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      color: rgba(242, 242, 242, 0.5);
     }
   }
 }
 
 .overlay {
   position: fixed;
-  top: 60px;
+  top: 0;
   left: 0;
   width: 100%;
-  height: calc(100% - 60px);
-  background-color: rgba(0,0,0,0.4);
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  backdrop-filter: blur(2px);
   z-index: 998;
+  animation: fadeIn 0.3s ease;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 
 .floating-contact {
   position: fixed;
