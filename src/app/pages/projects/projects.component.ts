@@ -14,6 +14,7 @@ import { Project } from '../../models/project.model';
 })
 export class ProjectsComponent implements OnInit {
   projects: Project[] = [];
+  activeProjectSlide = 0;
 
   constructor(private projectService: ProjectService) {}
 
@@ -23,5 +24,13 @@ export class ProjectsComponent implements OnInit {
 
   selectImage(projectIndex: number, imageIndex: number) {
     this.projects[projectIndex].selectedImageIndex = imageIndex;
+  }
+
+  onProjectSwipe(direction: 'left' | 'right') {
+    if (direction === 'left' && this.activeProjectSlide < this.projects.length - 1) {
+      this.activeProjectSlide++;
+    } else if (direction === 'right' && this.activeProjectSlide > 0) {
+      this.activeProjectSlide--;
+    }
   }
 }

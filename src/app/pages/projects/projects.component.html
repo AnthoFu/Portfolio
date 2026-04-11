@@ -1,7 +1,7 @@
 
 <section class="projects-hero">
   <div class="hero-content">
-    <h1 class="main-title">Projects</h1>
+    <h1 class="page-title">Projects</h1>
     <div class="subtitle-box">
       <p>Open source projects I have worked on or maintained.</p>
     </div>
@@ -9,7 +9,8 @@
 </section>
 
 <section class="projects-showcase">
-  <div class="cards-container" appSwipeable>
+  <!-- Agregados eventos de swipe para sincronizar con los puntos de paginación -->
+  <div class="cards-container" appSwipeable (swipeLeft)="onProjectSwipe('left')" (swipeRight)="onProjectSwipe('right')">
     <div class="card-slide" *ngFor="let project of projects; let i = index">
       <div class="project-card">
         
@@ -37,5 +38,11 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Puntos de paginación con el estilo sutil para fondo blanco -->
+  <div class="pagination-dots">
+    <div *ngFor="let dot of projects; let i = index" 
+         class="dot" [class.active]="i === activeProjectSlide"></div>
   </div>
 </section>

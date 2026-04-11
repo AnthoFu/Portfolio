@@ -1,23 +1,35 @@
 
 .projects-hero {
   background-color: var(--azul-2);
-  padding: 6rem 1.5rem 4rem;
+  padding: 8rem 1.5rem 6rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  overflow: hidden;
 
-  .main-title {
-    font-size: 3rem;
+  // Sutil animación de entrada para el hero
+  .hero-content {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .page-title {
+    font-size: 3.5rem;
     color: var(--naranja);
     font-weight: 800;
     margin-bottom: 2rem;
+    letter-spacing: -1px;
+
+    @media (max-width: 600px) {
+      font-size: 2.8rem;
+    }
   }
 
   .subtitle-box {
     background-color: var(--azul-1);
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 2.5rem;
     border-radius: 30px;
     max-width: 450px;
     width: 100%;
@@ -33,9 +45,14 @@
   }
 }
 
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .projects-showcase {
   background-color: var(--blanco);
-  padding: 4rem 0;
+  padding: 4rem 0 2rem;
   min-height: 80vh;
   text-align: center;
   overflow: hidden;
@@ -46,7 +63,8 @@
     box-sizing: border-box;
     cursor: grab;
     user-select: none;
-    transition: transform 0.3s ease-out;
+    // Agregada transición fluida para el swipe
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:active {
       cursor: grabbing;
@@ -62,6 +80,7 @@
     box-sizing: border-box;
   }
 
+  // Mantenemos la visual de la Card EXACTAMENTE igual a la original
   .project-card {
     background-color: var(--blanco);
     border-radius: 20px;
@@ -71,11 +90,17 @@
     flex-direction: column;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    // Mantengo tu hover original
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
       transform: translateY(-10px);
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    // Feedback táctil sutil para móvil
+    &:active {
+      transform: scale(0.98);
     }
 
     .main-image-container {
@@ -88,6 +113,8 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        // Agregada transición a la imagen principal para suavidad al cambiar thumbnails
+        transition: opacity 0.3s ease;
       }
     }
 
@@ -165,12 +192,39 @@
         font-weight: bold;
         align-self: flex-start;
         cursor: pointer;
-        transition: background-color 0.3s ease;
+        transition: all 0.2s ease;
+        text-decoration: none;
         font-family: inherit;
+
+        &:active {
+          transform: scale(0.95);
+        }
 
         &:hover {
           background-color: #e67e22; 
         }
+      }
+    }
+  }
+
+  // Puntos de paginación sutiles para indicar el avance
+  .pagination-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: rgba(37, 33, 78, 0.1);
+      transition: all 0.3s ease;
+
+      &.active {
+        width: 24px;
+        border-radius: 4px;
+        background-color: var(--naranja);
       }
     }
   }

@@ -11,6 +11,18 @@
     <div class="profile-photo-container">
       <img src="images/Anthofu_photo-1.jpeg" alt="Professional photo of Antho" class="profile-photo">
     </div>
+
+    <!-- Skills Preview on Home for faster discovery -->
+    <div class="top-skills-preview">
+      <div class="skill-pill" *ngFor="let skill of topSkills" [style.border-color]="skill.color">
+        <i [class]="skill.icon" [style.color]="skill.color"></i>
+        <span>{{ skill.name }}</span>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
   </div>
 </section>
 
@@ -21,43 +33,21 @@
       AnthoFu is a software developer passionate about technology and creating digital solutions. 
       Specialized in the Angular and NestJS ecosystem, always seeking clean code and an impeccable user experience.
     </p>
-    <button class="cv-button">Download CV</button>
+    <button class="cv-button" (click)="downloadCV()">Download CV</button>
   </div>
 </section>
 
 <section class="projects-preview">
   <h2 class="section-title">Featured Projects</h2>
-  <div class="cards-container" appSwipeable>
-    <!-- Card 1 -->
-    <div class="card-slide">
+  <div class="cards-container" appSwipeable (swipeLeft)="onProjectSwipe('left')" (swipeRight)="onProjectSwipe('right')">
+    <!-- Card Project -->
+    <div class="card-slide" *ngFor="let project of projects">
       <div class="project-card">
-        <img src="images/banner-pc.png" alt="AnimationLand Project" class="card-image">
+        <img [src]="project.images[0]" [alt]="project.title" class="card-image">
         <div class="card-content">
-          <h3 class="card-title">FinanciaMe</h3>
-          <p class="card-description">A Play Store app for personal financial management.</p>
-          <a class="card-button">View Project</a>
-        </div>
-      </div>
-    </div>
-    <!-- Card 2 -->
-    <div class="card-slide">
-      <div class="project-card">
-        <img src="images/banner-pc.png" alt="Antho's Shop Project" class="card-image">
-        <div class="card-content">
-          <h3 class="card-title">Antho's Shop</h3>
-          <p class="card-description">An e-commerce solution with a modern touch.</p>
-          <a class="card-button">View Project</a>
-        </div>
-      </div>
-    </div>
-    <!-- Card 3 -->
-    <div class="card-slide">
-      <div class="project-card">
-        <img src="images/banner-pc.png" alt="UNEXCA Project" class="card-image">
-        <div class="card-content">
-          <h3 class="card-title">UNEXCA</h3>
-          <p class="card-description">University management system for students and staff.</p>
-          <a class="card-button">View Project</a>
+          <h3 class="card-title">{{ project.title }}</h3>
+          <p class="card-description">{{ project.description }}</p>
+          <a [routerLink]="['/projects', project.slug]" class="card-button">View Project</a>
         </div>
       </div>
     </div>
@@ -69,18 +59,23 @@
       </a>
     </div>
   </div>
+  
+  <div class="pagination-dots">
+    <div *ngFor="let dot of [].constructor(projectSlidesCount); let i = index" 
+         class="dot" [class.active]="i === activeProjectSlide"></div>
+  </div>
 </section>
 
 <section class="more-about">
   <h2 class="section-title">More about AnthoFu</h2>
-  <div class="cards-container" appSwipeable>
+  <div class="cards-container" appSwipeable (swipeLeft)="onAboutSwipe('left')" (swipeRight)="onAboutSwipe('right')">
     <!-- Card 1 -->
     <div class="card-slide">
       <div class="about-card">
         <img src="images/Anthofu_Icon.png" alt="About Icon" class="card-icon">
         <h3 class="card-title">My Skills</h3>
         <p class="card-description">Discover the technologies and tools I work with.</p>
-        <a class="card-button-outline">See Skills</a>
+        <a routerLink="/about" class="card-button-outline">See Skills</a>
       </div>
     </div>
     <!-- Card 2 -->
@@ -89,7 +84,7 @@
         <img src="images/Anthofu_Icon.png" alt="About Icon" class="card-icon">
         <h3 class="card-title">About Me</h3>
         <p class="card-description">A little more about my journey and passions.</p>
-        <a class="card-button-outline">Read More</a>
+        <a routerLink="/about" class="card-button-outline">Read More</a>
       </div>
     </div>
     <!-- Card 3 -->
@@ -98,8 +93,18 @@
         <img src="images/Anthofu_Icon.png" alt="About Icon" class="card-icon">
         <h3 class="card-title">Contact</h3>
         <p class="card-description">Let's get in touch and create something together.</p>
-        <a class="card-button-outline">Contact Me</a>
+        <a href="https://www.linkedin.com/in/anthofu/" target="_blank" class="card-button-outline">Contact Me</a>
       </div>
     </div>
   </div>
+
+  <div class="pagination-dots light">
+    <div *ngFor="let dot of [].constructor(aboutSlidesCount); let i = index" 
+         class="dot" [class.active]="i === activeAboutSlide"></div>
+  </div>
 </section>
+
+<!-- Scroll to Top Button for Mobile -->
+<button class="scroll-top-btn" [class.show]="showScrollTop" (click)="scrollToTop()">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
