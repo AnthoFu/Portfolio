@@ -46,7 +46,7 @@
         <img [src]="project.images[0]" [alt]="project.title" class="card-image">
         <div class="card-content">
           <h3 class="card-title">{{ project.title }}</h3>
-          <p class="card-description">{{ project.description }}</p>
+          <p class="card-description">{{ project.shortDescription }}</p>
           <a [routerLink]="['/projects', project.slug]" class="card-button">View Project</a>
         </div>
       </div>

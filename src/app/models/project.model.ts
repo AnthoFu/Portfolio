@@ -3,13 +3,16 @@ export interface Project {
   title: string;
   period?: string;
   title_color?: string;
-  description: string;
-  challenge?: string;
-  solution?: string;
-  role?: string;
+  shortDescription: string;
+  fullDescription: string;
   technologies: string[];
-  images: string[];
+  images: string[]; // Idealmente exactamente 3 fotos
   selectedImageIndex: number;
   liveDemo?: string;
   repository?: string;
+  // Campos antiguos para retrocompatibilidad opcional
+  description?: string;
+  challenge?: string;
+  solution?: string;
+  role?: string;
 }
