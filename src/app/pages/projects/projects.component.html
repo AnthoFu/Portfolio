@@ -8,28 +8,73 @@
   </div>
 </section>
 
-<!-- Sections grouped by year -->
 <div class="projects-by-year">
+  <!-- Active Projects Section -->
+  <section class="year-section bg-white" *ngIf="activeProjects.length > 0">
+    <div class="content">
+      <h2 class="year-title">I'm working on...</h2>
+      
+      <div class="slider-wrapper">
+        <div class="cards-slider" 
+             appSwipeable 
+             (swipeLeft)="onActiveSwipe('left')" 
+             (swipeRight)="onActiveSwipe('right')"
+             [style.transform]="'translateX(' + (-activeProjectsIndex * 100) + 'vw)'">
+          <div class="card-slide" *ngFor="let project of activeProjects">
+            <div class="project-card">
+              <div class="active-badge">In Progress</div>
+              <img [src]="project.images[0]" [alt]="project.title" class="card-image">
+              <div class="card-content">
+                <h3 class="card-title">{{ project.title }}</h3>
+                <p class="card-description">{{ project.shortDescription }}</p>
+                <a [routerLink]="['/projects', project.slug]" class="card-button">View Project</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination for Active Projects -->
+      <div class="pagination-dots" *ngIf="activeProjects.length > 1">
+        <div *ngFor="let dot of activeProjects; let i = index" 
+             class="dot" [class.active]="i === activeProjectsIndex"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sections grouped by year -->
   <section 
     *ngFor="let group of groupedProjects; let i = index" 
-    [class.bg-white]="i % 2 === 0" 
-    [class.bg-blue]="i % 2 !== 0"
+    [class.bg-white]="(i + (activeProjects.length > 0 ? 1 : 0)) % 2 === 0" 
+    [class.bg-blue]="(i + (activeProjects.length > 0 ? 1 : 0)) % 2 !== 0"
     class="year-section"
   >
     <div class="content">
       <h2 class="year-title">{{ group.year }}</h2>
       
-      <div class="cards-container">
-        <div class="project-card" *ngFor="let project of group.projects">
-          
-          <img [src]="project.images[0]" [alt]="project.title" class="card-image">
-
-          <div class="card-content">
-            <h3 class="card-title">{{ project.title }}</h3>
-            <p class="card-description">{{ project.shortDescription }}</p>
-            <a [routerLink]="['/projects', project.slug]" class="card-button">View Project</a>
+      <div class="slider-wrapper">
+        <div class="cards-slider" 
+             appSwipeable 
+             (swipeLeft)="onYearSwipe('left', i)" 
+             (swipeRight)="onYearSwipe('right', i)"
+             [style.transform]="'translateX(' + (-group.activeIndex * 100) + 'vw)'">
+          <div class="card-slide" *ngFor="let project of group.projects">
+            <div class="project-card">
+              <img [src]="project.images[0]" [alt]="project.title" class="card-image">
+              <div class="card-content">
+                <h3 class="card-title">{{ project.title }}</h3>
+                <p class="card-description">{{ project.shortDescription }}</p>
+                <a [routerLink]="['/projects', project.slug]" class="card-button">View Project</a>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+
+      <!-- Pagination for Year Group -->
+      <div class="pagination-dots" *ngIf="group.projects.length > 1">
+        <div *ngFor="let dot of group.projects; let j = index" 
+             class="dot" [class.active]="j === group.activeIndex"></div>
       </div>
     </div>
   </section>

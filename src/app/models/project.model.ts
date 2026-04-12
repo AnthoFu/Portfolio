@@ -2,6 +2,7 @@ export interface Project {
   slug: string;
   title: string;
   year: number;
+  status?: 'active' | 'completed';
   period?: string;
   title_color?: string;
   shortDescription: string;

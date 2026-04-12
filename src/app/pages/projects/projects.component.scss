@@ -40,29 +40,34 @@
 }
 
 .projects-by-year {
+  overflow-x: hidden; // Prevents whole page horizontal scroll
+
   .year-section {
-    padding: 5rem 1.5rem;
+    padding: 5rem 0; // Padding only top/bottom for full width slider
     width: 100%;
+    overflow: hidden;
 
     .content {
-      max-width: 1200px;
+      width: 100%;
       margin: 0 auto;
     }
 
     &.bg-white {
       background-color: var(--blanco);
       .year-title { color: var(--azul-1); }
+      .pagination-dots .dot { background-color: rgba(37, 33, 78, 0.2); }
     }
 
     &.bg-blue {
       background-color: var(--azul-2);
       .year-title { color: var(--blanco); }
+      .pagination-dots .dot { background-color: rgba(255, 255, 255, 0.2); }
     }
   }
 }
 
 .year-title {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 800;
   margin-bottom: 3rem;
   text-align: center;
@@ -81,12 +86,51 @@
   }
 }
 
-.cards-container {
+// Slider Logic
+.slider-wrapper {
+  width: 100%;
+  cursor: grab;
+  user-select: none;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.cards-slider {
   display: flex;
-  flex-wrap: wrap;
+  width: 100%;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-slide {
+  flex: 0 0 100vw;
+  display: flex;
   justify-content: center;
-  gap: 3rem;
-  padding: 2rem 0;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  box-sizing: border-box;
+}
+
+// Pagination Dots
+.pagination-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+
+    &.active {
+      width: 24px;
+      border-radius: 4px;
+      background-color: var(--naranja);
+    }
+  }
 }
 
 // Estilo unificado de la Project Card (Idéntico al Home)
@@ -95,15 +139,31 @@
   border-radius: 25px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  width: 100%;
+  width: 88vw;
   max-width: 400px;
   display: flex;
   flex-direction: column;
   transition: all 0.3s ease;
   min-height: 450px;
+  position: relative;
 
   &:active {
     transform: scale(0.98);
+  }
+
+  .active-badge {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    background-color: var(--naranja);
+    color: var(--azul-1);
+    padding: 0.4rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    z-index: 3;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
   }
 
   .card-image {
