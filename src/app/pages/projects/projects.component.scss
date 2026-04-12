@@ -1,231 +1,163 @@
 
+.page-title {
+  font-size: 3.5rem;
+  color: var(--naranja);
+  font-weight: 800;
+  margin-bottom: 2rem;
+  letter-spacing: -1px;
+  animation: fadeInDown 0.8s ease-out;
+
+  @media (max-width: 600px) {
+    font-size: 2.8rem;
+  }
+}
+
 .projects-hero {
   background-color: var(--azul-2);
-  padding: 8rem 1.5rem 6rem;
+  padding: 8rem 1.5rem 4rem;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-
-  // Sutil animación de entrada para el hero
+  
   .hero-content {
-    animation: fadeInUp 0.8s ease-out;
-  }
-
-  .page-title {
-    font-size: 3.5rem;
-    color: var(--naranja);
-    font-weight: 800;
-    margin-bottom: 2rem;
-    letter-spacing: -1px;
-
-    @media (max-width: 600px) {
-      font-size: 2.8rem;
-    }
+    max-width: 800px;
+    margin: 0 auto;
   }
 
   .subtitle-box {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
     background-color: var(--azul-1);
-    padding: 1.5rem 2.5rem;
-    border-radius: 30px;
-    max-width: 450px;
-    width: 100%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 
     p {
       color: var(--blanco);
-      font-size: 1.2rem;
-      font-weight: 800;
-      line-height: 1.4;
+      opacity: 0.9;
       margin: 0;
+      font-weight: 500;
     }
   }
 }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.projects-showcase {
-  background-color: var(--blanco);
-  padding: 4rem 0 2rem;
-  min-height: 80vh;
-  text-align: center;
-  overflow: hidden;
-
-  .cards-container {
-    display: flex;
+.projects-by-year {
+  .year-section {
+    padding: 5rem 1.5rem;
     width: 100%;
-    box-sizing: border-box;
-    cursor: grab;
-    user-select: none;
-    // Agregada transición fluida para el swipe
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
-    &:active {
-      cursor: grabbing;
+    .content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    &.bg-white {
+      background-color: var(--blanco);
+      .year-title { color: var(--azul-1); }
+    }
+
+    &.bg-blue {
+      background-color: var(--azul-2);
+      .year-title { color: var(--blanco); }
     }
   }
+}
 
-  .card-slide {
-    flex: 0 0 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: border-box;
+.year-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--naranja);
+    border-radius: 2px;
+  }
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  padding: 2rem 0;
+}
+
+// Estilo unificado de la Project Card (Idéntico al Home)
+.project-card {
+  background-color: white;
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  min-height: 450px;
+
+  &:active {
+    transform: scale(0.98);
   }
 
-  // Mantenemos la visual de la Card EXACTAMENTE igual a la original
-  .project-card {
-    background-color: var(--blanco);
-    border-radius: 20px;
-    width: 90vw;
-    max-width: 400px;
+  .card-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 1.8rem;
+    text-align: left;
+    color: var(--azul-2);
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0 0 0.8rem;
+    color: var(--azul-1);
+  }
+
+  .card-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 0 2rem;
+    flex-grow: 1;
+    color: #666;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    // Mantengo tu hover original
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
 
-    &:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-    }
+  .card-button {
+    background-color: var(--naranja);
+    color: var(--blanco);
+    padding: 1rem 1.8rem;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    align-self: flex-start;
+    box-shadow: 0 5px 15px rgba(243, 146, 0, 0.3);
+    transition: all 0.3s ease;
 
-    // Feedback táctil sutil para móvil
     &:active {
-      transform: scale(0.98);
-    }
-
-    .main-image-container {
-      width: 100%;
-      height: 200px;
-      background-color: #EEE;
-      overflow: hidden;
-
-      .main-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        // Agregada transición a la imagen principal para suavidad al cambiar thumbnails
-        transition: opacity 0.3s ease;
-      }
-    }
-
-    .thumbnails-container {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      padding: 1rem 0;
-      background-color: rgba(0,0,0,0.02);
-
-      .thumbnail {
-        cursor: pointer;
-        transition: transform 0.2s ease;
-
-        &:hover {
-          transform: scale(1.1);
-        }
-
-        &.active {
-          .thumbnail-circle {
-            border: 3px solid var(--naranja);
-            box-shadow: 0 0 10px rgba(230, 126, 34, 0.3);
-          }
-        }
-
-        .thumbnail-circle {
-          width: 50px;
-          height: 50px;
-          background-color: #EEE;
-          border-radius: 50%;
-          overflow: hidden;
-          border: 2px solid transparent;
-          transition: all 0.2s ease;
-          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-        }
-      }
-    }
-
-    .card-content {
-      padding: 1.5rem;
-      text-align: left;
-      color: var(--azul-2);
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-
-      .project-title {
-        color: var(--azul-2);
-        font-size: 1.5rem;
-        font-weight: 800;
-        margin: 0 0 0.5rem;
-      }
-
-      .project-description {
-        font-size: 1rem;
-        line-height: 1.5;
-        margin: 0 0 1.5rem;
-        flex-grow: 1;
-        font-weight: 500;
-        color: rgba(22, 19, 42, 0.8);
-      }
-
-      .card-button {
-        background-color: var(--naranja);
-        color: var(--blanco);
-        border: none;
-        padding: 0.8rem 1.5rem;
-        border-radius: 15px;
-        font-weight: bold;
-        align-self: flex-start;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        text-decoration: none;
-        font-family: inherit;
-
-        &:active {
-          transform: scale(0.95);
-        }
-
-        &:hover {
-          background-color: #e67e22; 
-        }
-      }
+      transform: scale(0.95);
     }
   }
+}
 
-  // Puntos de paginación sutiles para indicar el avance
-  .pagination-dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 2rem;
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: rgba(37, 33, 78, 0.1);
-      transition: all 0.3s ease;
-
-      &.active {
-        width: 24px;
-        border-radius: 4px;
-        background-color: var(--naranja);
-      }
-    }
-  }
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }

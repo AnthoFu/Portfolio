@@ -1,6 +1,7 @@
 export interface Project {
   slug: string;
   title: string;
+  year: number;
   period?: string;
   title_color?: string;
   shortDescription: string;

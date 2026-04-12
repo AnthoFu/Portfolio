@@ -451,10 +451,10 @@
 
   .about-card {
     background-color: var(--azul-1);
-    border-radius: 30px;
+    border-radius: 25px; // Match project-card radius
     width: 88vw;
     max-width: 400px;
-    height: 420px;
+    height: 450px; // Match project-card min-height
     padding: 3rem 2rem;
     box-sizing: border-box;
     display: flex;
@@ -464,6 +464,7 @@
     color: var(--blanco);
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); // More pronounced shadow for dark card
 
     &:active {
       transform: scale(0.98);
@@ -491,18 +492,17 @@
     }
 
     .card-button-outline {
-      border: 2px solid var(--naranja);
-      color: var(--naranja);
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
+      background-color: var(--naranja);
+      color: var(--blanco);
+      padding: 1rem 1.8rem; // Match project-card padding
+      border-radius: 15px; // Match project-card radius
       text-decoration: none;
       font-weight: bold;
-      font-family: 'Mono Bold', sans-serif;
-      transition: all 0.3s;
+      align-self: center; // Center it in the about card
+      box-shadow: 0 5px 15px rgba(243, 146, 0, 0.3);
+      transition: all 0.3s ease;
 
       &:active {
-        background-color: var(--naranja);
-        color: var(--blanco);
         transform: scale(0.95);
       }
     }

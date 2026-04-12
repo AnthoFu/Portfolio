@@ -8,41 +8,29 @@
   </div>
 </section>
 
-<section class="projects-showcase">
-  <!-- Agregados eventos de swipe para sincronizar con los puntos de paginación -->
-  <div class="cards-container" appSwipeable (swipeLeft)="onProjectSwipe('left')" (swipeRight)="onProjectSwipe('right')">
-    <div class="card-slide" *ngFor="let project of projects; let i = index">
-      <div class="project-card">
-        
-        <div class="main-image-container">
-          <img [src]="project.images[project.selectedImageIndex]" alt="Project main image" class="main-image">
-        </div>
-        
-        <div class="thumbnails-container">
-          <div 
-            class="thumbnail" 
-            *ngFor="let img of project.images; let j = index"
-            [class.active]="project.selectedImageIndex === j"
-            (click)="selectImage(i, j)"
-          >
-            <div class="thumbnail-circle">
-              <img [src]="img" alt="Project thumbnail">
-            </div>
-          </div>
-        </div>
+<!-- Sections grouped by year -->
+<div class="projects-by-year">
+  <section 
+    *ngFor="let group of groupedProjects; let i = index" 
+    [class.bg-white]="i % 2 === 0" 
+    [class.bg-blue]="i % 2 !== 0"
+    class="year-section"
+  >
+    <div class="content">
+      <h2 class="year-title">{{ group.year }}</h2>
+      
+      <div class="cards-container">
+        <div class="project-card" *ngFor="let project of group.projects">
+          
+          <img [src]="project.images[0]" [alt]="project.title" class="card-image">
 
-        <div class="card-content">
-          <h3 class="project-title">{{ project.title }}</h3>
-          <p class="project-description">{{ project.shortDescription }}</p>
-          <a [routerLink]="['/projects', project.slug]" class="card-button">More information</a>
+          <div class="card-content">
+            <h3 class="card-title">{{ project.title }}</h3>
+            <p class="card-description">{{ project.shortDescription }}</p>
+            <a [routerLink]="['/projects', project.slug]" class="card-button">View Project</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Puntos de paginación con el estilo sutil para fondo blanco -->
-  <div class="pagination-dots">
-    <div *ngFor="let dot of projects; let i = index" 
-         class="dot" [class.active]="i === activeProjectSlide"></div>
-  </div>
-</section>
+  </section>
+</div>
