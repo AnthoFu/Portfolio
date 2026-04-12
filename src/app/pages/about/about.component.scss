@@ -156,8 +156,23 @@
             transform: scale(0.95);
           }
 
+          .tag-image {
+            width: 1.4rem;
+            height: 1.4rem;
+            object-fit: contain;
+          }
+
           i {
             font-size: 1.4rem;
+            width: 1.4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.fa-solid, &.fa-brands, &.fab, &.fas {
+              font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", sans-serif;
+              font-weight: 900;
+            }
           }
         }
       }

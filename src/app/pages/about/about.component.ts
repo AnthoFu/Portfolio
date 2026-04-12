@@ -23,12 +23,12 @@ interface TechCategory {
 export class AboutComponent {
   techStack: TechCategory[] = [
     {
-      title: 'Lenguajes',
+      title: 'Languages',
       items: [
         { name: 'JavaScript', icon: 'devicon-javascript-plain', color: '#F7DF1E', textColor: '#000' },
         { name: 'TypeScript', icon: 'devicon-typescript-plain', color: '#3178C6', textColor: '#FFF' },
         { name: 'Python', icon: 'devicon-python-plain', color: '#3776AB', textColor: '#FFF' },
-        { name: 'SQL', icon: 'devicon-postgresql-plain', color: '#336791', textColor: '#FFF' }
+        { name: 'SQL', icon: 'fa-solid fa-database', color: '#336791', textColor: '#FFF' }
       ]
     },
     {
@@ -46,12 +46,12 @@ export class AboutComponent {
       title: 'Back-end',
       items: [
         { name: 'Node.js', icon: 'devicon-nodejs-plain', color: '#339933', textColor: '#FFF' },
-        { name: 'Odoo', icon: 'devicon-odoo-plain', color: '#714B67', textColor: '#FFF' },
+        { name: 'Odoo', icon: 'images/odoo_logo.svg', color: '#D1C4CD', textColor: '#714B67' },
         { name: 'NestJS', icon: 'devicon-nestjs-plain', color: '#E0234E', textColor: '#FFF' }
       ]
     },
     {
-      title: 'Bases de datos',
+      title: 'Databases',
       items: [
         { name: 'MongoDB', icon: 'devicon-mongodb-plain', color: '#47A248', textColor: '#FFF' },
         { name: 'PostgreSQL', icon: 'devicon-postgresql-plain', color: '#4169E1', textColor: '#FFF' },
@@ -68,15 +68,15 @@ export class AboutComponent {
       ]
     },
     {
-      title: 'Herramientas',
+      title: 'Tools and methodologies',
       items: [
         { name: 'Figma', icon: 'devicon-figma-plain', color: '#F24E1E', textColor: '#FFF' },
         { name: 'Expo', icon: 'devicon-expo-original', color: '#000', textColor: '#FFF' },
         { name: 'Jupyter', icon: 'devicon-jupyter-plain', color: '#F37626', textColor: '#FFF' },
         { name: 'Jira', icon: 'devicon-jira-plain', color: '#0052CC', textColor: '#FFF' },
-        { name: 'ClickUp', icon: 'devicon-clickup-plain', color: '#7B68EE', textColor: '#FFF' },
-        { name: 'Miro', icon: 'devicon-miro-plain', color: '#FFD700', textColor: '#000' },
-        { name: 'Scrum', icon: 'devicon-github-original', color: '#0089D1', textColor: '#FFF' }
+        { name: 'ClickUp', icon: 'fa-solid fa-list-check', color: '#7B68EE', textColor: '#FFF' },
+        { name: 'Miro', icon: 'fa-solid fa-chalkboard-user', color: '#FFD700', textColor: '#000' },
+        { name: 'Scrum', icon: 'fa-solid fa-arrows-spin', color: '#0089D1', textColor: '#FFF' }
       ]
     }
   ];

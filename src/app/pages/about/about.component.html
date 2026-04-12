@@ -21,7 +21,12 @@
           <span class="tag" *ngFor="let item of category.items" 
                 [style.background-color]="item.color" 
                 [style.color]="item.textColor || '#FFF'">
-            <i [class]="item.icon"></i>
+            <ng-container *ngIf="item.icon.includes('/'); else iconFont">
+              <img [src]="item.icon" [alt]="item.name + ' logo'" class="tag-image">
+            </ng-container>
+            <ng-template #iconFont>
+              <i [class]="item.icon"></i>
+            </ng-template>
             {{ item.name }}
           </span>
         </div>
