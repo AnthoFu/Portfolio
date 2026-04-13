@@ -21,17 +21,16 @@ export class ProjectService {
       repository: 'https://github.com/AnthoFu'
     },
     {
-      slug: 'ai-chat-app',
-      title: 'AI Chat Assistant',
-      year: 2026,
+      slug: 'financiame-mobile-app',
+      title: 'FinanciaMe - Personal Finance Manager',
+      year: 2025,
       status: 'active',
-      period: 'Jan 2026 - Present',
-      shortDescription: 'Collaborative AI assistant with real-time streaming and code highlighting.',
-      fullDescription: 'Developing a high-performance chat interface using Genkit and Gemini API, focused on developer productivity and seamless integration.',
-      technologies: ['Genkit', 'Firebase', 'Angular'],
-      images: ['images/banner-pc.png', 'images/banner-cel.png', 'images/Anthofu_photo-1.jpeg'],
-      selectedImageIndex: 0,
-      repository: 'https://github.com/AnthoFu'
+      period: 'August 2025 - Present',
+      shortDescription: 'I developed an offline-first mobile application using React Native and Zustand to help users manage multi-currency finances, track expenses, and reach savings goals with real-time exchange rates.',
+      fullDescription: 'FinanciaMe was born from the need for a robust, offline-first personal finance tool tailored for users in multi-currency environments, such as Venezuela. Young professionals often struggle to consolidate balances across different currencies (USD, VES, USDT). This application provides a unified view of their financial health by fetching real-time exchange rates while keeping all sensitive data securely on the device.\n\nTechnical Challenges:\nThe primary challenge was implementing a reliable offline-first architecture. I utilized Zustand with custom persistence logic and migration strategies to ensure data integrity across app updates. Managing complex financial logic, such as multi-currency transfers with commissions and automated recurring expenses, required a strict state management pattern to prevent balance inconsistencies. Additionally, creating a smooth, interactive user experience with Expo Reanimated and custom UI components was essential for user engagement.\n\nResults:\nThe final product is a high-performance, type-safe mobile application built with TypeScript and Expo. Key technologies include Zustand for lightweight state management and React Native Chart Kit for data visualization. The app features a comprehensive budgeting system, savings tracking, and an automated notification system for fixed expenses, making it a complete solution for modern financial management.',
+      technologies: ['React Native', 'TypeScript', 'Zustand', 'Expo', 'Reanimated'],
+      images: ['images/screenshot-home.jpg', 'images/screenshot-billeteras.jpg', 'images/screenshot-metas.jpg'],
+      selectedImageIndex: 0
     },
     {
       slug: 'project-bla-bla',
