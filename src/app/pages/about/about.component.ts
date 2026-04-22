@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CourseService } from '../../services/course.service';
+import { Course } from '../../models/course.model';
 
 interface TechItem {
   name: string;
@@ -20,7 +22,10 @@ interface TechCategory {
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss'
 })
-export class AboutComponent {
+export class AboutComponent implements OnInit {
+  private courseService = inject(CourseService);
+  courses: Course[] = [];
+
   techStack: TechCategory[] = [
     {
       title: 'Languages',
@@ -80,4 +85,10 @@ export class AboutComponent {
       ]
     }
   ];
+
+  ngOnInit(): void {
+    this.courseService.getCourses().subscribe(courses => {
+      this.courses = courses;
+    });
+  }
 }

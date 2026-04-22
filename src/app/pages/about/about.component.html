@@ -85,3 +85,29 @@
     </div>
   </div>
 </section>
+
+<section class="certifications">
+  <div class="content">
+    <h2 class="section-title">Certifications & Courses</h2>
+    <div class="courses-grid">
+      <div class="course-card" *ngFor="let course of courses">
+        <div class="course-image" *ngIf="course.imageUrl">
+          <img [src]="course.imageUrl" [alt]="course.title">
+        </div>
+        <div class="course-info">
+          <div class="course-header">
+            <h3>{{ course.title }}</h3>
+            <span class="course-date">{{ course.date }}</span>
+          </div>
+          <p class="course-issuer">{{ course.platform }} - {{ course.issuer }}</p>
+          <div class="course-skills">
+            <span class="skill-tag" *ngFor="let skill of course.skills">{{ skill }}</span>
+          </div>
+          <a [href]="course.certificateUrl" target="_blank" class="certificate-link" *ngIf="course.certificateUrl">
+            <i class="fa-solid fa-certificate"></i> View Certificate
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
