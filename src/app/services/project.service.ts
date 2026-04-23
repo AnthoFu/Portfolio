@@ -6,6 +6,7 @@ import { Project } from '../models/project.model';
 })
 export class ProjectService {
   private projects: Project[] = [
+
     {
       slug: 'portfolio-v2',
       title: 'AnthoFu Portfolio v2',
@@ -20,6 +21,7 @@ export class ProjectService {
       liveDemo: 'https://anthofu-portfolio.firebaseapp.com',
       repository: 'https://github.com/AnthoFu'
     },
+
     {
       slug: 'anthocito-discord-bot',
       title: 'Anthocito Bot - Discord Assistant',
@@ -33,6 +35,7 @@ export class ProjectService {
       selectedImageIndex: 0,
       repository: 'https://github.com/anthofu/anthocito'
     },
+
     {
       slug: "teslo-shop",
       title: "Teslo Shop - Fullstack E-commerce API",
@@ -47,6 +50,7 @@ export class ProjectService {
       repository: "https://github.com/AnthoFu/04-teslo-shop",
       liveDemo: "https://anthofu-chatter.netlify.app"
     },
+
     {
       slug: 'financiame-mobile-app',
       title: 'FinanciaMe - Personal Finance Manager',
@@ -57,8 +61,11 @@ export class ProjectService {
       fullDescription: 'FinanciaMe was born from the need for a robust, offline-first personal finance tool tailored for users in multi-currency environments, such as Venezuela. Young professionals often struggle to consolidate balances across different currencies (USD, VES, USDT). This application provides a unified view of their financial health by fetching real-time exchange rates while keeping all sensitive data securely on the device.\n\nTechnical Challenges:\nThe primary challenge was implementing a reliable offline-first architecture. I utilized Zustand with custom persistence logic and migration strategies to ensure data integrity across app updates. Managing complex financial logic, such as multi-currency transfers with commissions and automated recurring expenses, required a strict state management pattern to prevent balance inconsistencies. Additionally, creating a smooth, interactive user experience with Expo Reanimated and custom UI components was essential for user engagement.\n\nResults:\nThe final product is a high-performance, type-safe mobile application built with TypeScript and Expo. Key technologies include Zustand for lightweight state management and React Native Chart Kit for data visualization. The app features a comprehensive budgeting system, savings tracking, and an automated notification system for fixed expenses, making it a complete solution for modern financial management.',
       technologies: ['React Native', 'TypeScript', 'Zustand', 'Expo', 'Reanimated'],
       images: ['images/screenshot-home.jpg', 'images/screenshot-billeteras.jpg', 'images/screenshot-metas.jpg'],
-      selectedImageIndex: 0
+      selectedImageIndex: 0,
+      repository:'https://github.com/AnthoFu/FinanciaMe',
+      liveDemo:'https://play.google.com/store/apps/details?id=com.anthofu.FinanciaMe'
     },
+
     {
       slug: 'anthofu-fake-store-angular',
       title: 'AnthoFu\'s Fake Store',
@@ -73,18 +80,7 @@ export class ProjectService {
       liveDemo: 'https://anthofu-ecommerce.vercel.app',
       repository: 'https://github.com/AnthoFu/Angular-17-Platzi'
     },
-    {
-      slug: 'anthos-shop',
-      title: 'Antho\'s Shop',
-      year: 2024,
-      status: 'completed',
-      period: 'March 2024 - June 2024',
-      shortDescription: 'An e-commerce solution with a modern touch, built with Angular and Firebase.',
-      fullDescription: 'Detailed explanation of Antho\'s Shop. This e-commerce project focuses on speed and user experience, using Firebase Realtime Database and Angular services to maintain reactivity throughout the application.',
-      technologies: ['Angular', 'Firebase', 'TailwindCSS'],
-      images: ['images/banner-pc.png', 'images/banner-cel.png', 'images/logo_btc.png'],
-      selectedImageIndex: 0
-    },
+
     {
       slug: 'unexca-prototype-website',
       title: 'UNEXCA Prototype Website',
@@ -98,6 +94,7 @@ export class ProjectService {
       selectedImageIndex: 0,
       liveDemo: 'https://unexca-website.netlify.app'
     },
+
     {
       slug: 'legacy-project',
       title: 'Old Portfolio',
@@ -108,7 +105,8 @@ export class ProjectService {
       fullDescription: 'This is where everything started. A simple but effective way to showcase my first steps in the development world.',
       technologies: ['HTML', 'CSS', 'JavaScript'],
       images: ['images/banner-pc.png', 'images/banner-cel.png', 'images/Anthofu_Icon.png'],
-      selectedImageIndex: 0
+      selectedImageIndex: 0,
+      repository:'https://github.com/AnthoFu/Portfolio/tree/main/archive/legacy'
     }
   ];
 

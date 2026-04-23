@@ -32,10 +32,12 @@
       </div>
 
       <div class="actions">
-        <a [href]="project.repository" target="_blank" class="btn-action">
+        <a *ngIf="project.repository" [href]="project.repository" target="_blank" class="btn-action">
+          <i class="fa-brands fa-github"></i>
           View Code
         </a>
-        <a [href]="project.liveDemo" target="_blank" class="btn-action">
+        <a *ngIf="project.liveDemo" [href]="project.liveDemo" target="_blank" class="btn-action">
+          <i class="fa-solid fa-rocket"></i>
           Live Demo
         </a>
       </div>
