@@ -470,10 +470,17 @@
       transform: scale(0.98);
     }
 
-    .card-icon {
+    .card-icon-wrapper {
       width: 90px;
       height: 90px;
       margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      font-size: 2.5rem;
+      color: var(--naranja);
       filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
     }
 

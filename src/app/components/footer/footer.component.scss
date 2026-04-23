@@ -84,6 +84,28 @@
     }
   }
 
+  .social-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      width: auto;
+    }
+
+    a {
+      color: var(--blanco);
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: var(--naranja);
+        transform: translateY(-3px);
+      }
+    }
+  }
+
   .footer-bottom {
     width: 100%;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
