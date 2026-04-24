@@ -68,6 +68,7 @@ export class AboutComponent implements OnInit {
       items: [
         { name: 'Amazon S3', icon: 'devicon-amazonwebservices-plain-wordmark', color: '#FF9900', textColor: '#000' },
         { name: 'AWS Lambda', icon: 'devicon-amazonwebservices-plain-wordmark', color: '#FF9900', textColor: '#000' },
+        
         { name: 'Git', icon: 'devicon-git-plain', color: '#F05032', textColor: '#FFF' },
         { name: 'GitHub', icon: 'devicon-github-original', color: '#181717', textColor: '#FFF' }
       ]
@@ -77,6 +78,7 @@ export class AboutComponent implements OnInit {
       items: [
         { name: 'Figma', icon: 'devicon-figma-plain', color: '#F24E1E', textColor: '#FFF' },
         { name: 'Expo', icon: 'devicon-expo-original', color: '#000', textColor: '#FFF' },
+        { name: 'Google Play Console', icon: 'devicon-google-plain', color: '#4285F4', textColor: '#FFF' },
         { name: 'Jupyter', icon: 'devicon-jupyter-plain', color: '#F37626', textColor: '#FFF' },
         { name: 'Jira', icon: 'devicon-jira-plain', color: '#0052CC', textColor: '#FFF' },
         { name: 'ClickUp', icon: 'fa-solid fa-list-check', color: '#7B68EE', textColor: '#FFF' },
