@@ -1,29 +1,34 @@
 <footer class="footer">
-  <div class="footer-content">
-    <div class="footer-logo">
-      <h1 class="logo-text">
-        Anth<span class="icon-container"><img src="images/Anthofu_Icon.png" alt="AnthoFu Icon"></span>u
-      </h1>
+  <div class="footer-container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <h1 class="logo-text">
+          Anth<span class="icon-container"><img src="images/Anthofu_Icon.png" alt="AnthoFu Icon"></span>u
+        </h1>
+        <p class="logo-motto">Crafting digital experiences.</p>
+      </div>
+
+      <nav class="footer-nav">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">HOME</a>
+        <a routerLink="/about" routerLinkActive="active">ABOUT ME</a>
+        <a routerLink="/projects" routerLinkActive="active">PROJECTS</a>
+      </nav>
     </div>
 
-    <div class="footer-links">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">HOME</a>
-      <a routerLink="/about" routerLinkActive="active">ABOUT ME</a>
-      <a routerLink="/projects" routerLinkActive="active">PROJECTS</a>
-    </div>
-
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/anthofu/" target="_blank" aria-label="LinkedIn">
-        <i class="fa-brands fa-linkedin"></i>
-      </a>
-      <a href="https://github.com/anthofu" target="_blank" aria-label="GitHub">
-        <i class="fa-brands fa-github"></i>
-      </a>
-    </div>
+    <div class="footer-divider"></div>
 
     <div class="footer-bottom">
-      <p>&copy; 2026 AnthoFu. All rights reserved.</p>
-      <p class="built-with">Built with Angular 18 & <span class="heart">❤️</span></p>
+      <div class="footer-info">
+        <p>&copy; 2026 AnthoFu. All rights reserved.</p>
+      </div>
+      
+      <div class="footer-extra">
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/anthofu/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/anthofu" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        </div>
+        <p class="built-with">Built with Angular 18 & <span class="heart">❤️</span></p>
+      </div>
     </div>
   </div>
 </footer>

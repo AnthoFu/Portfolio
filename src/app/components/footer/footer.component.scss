@@ -1,128 +1,140 @@
 .footer {
   background-color: var(--azul-1);
-  padding: 2.5rem 10% 4rem; // More compact vertical padding
   color: var(--blanco);
+  padding: 4rem 0 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05); // Subtle, almost invisible separator
   font-family: 'Roboto', sans-serif;
-  text-align: center;
-  border-radius: 60px 60px 0 0;
-  margin-top: 2rem;
-  box-sizing: border-box;
 
-  @media (min-width: 768px) {
-    padding: 2rem 5% 2rem;
-  }
-
-  .footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem; // Reduced gap
+  .footer-container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 1.5rem;
+
+    @media (min-width: 1024px) {
+      padding: 0 4rem;
+    }
+  }
+
+  .footer-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
 
     @media (min-width: 768px) {
       flex-direction: row;
       justify-content: space-between;
-      flex-wrap: wrap;
+      align-items: flex-start;
     }
   }
 
-  .footer-logo {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-
-    @media (min-width: 768px) {
-      width: auto;
-    }
-
+  .footer-brand {
     .logo-text {
       font-family: 'Mono Bold', sans-serif;
-      font-size: 1.5rem; // Much smaller
+      font-size: 1.8rem;
       color: var(--naranja);
       display: flex;
       align-items: center;
-      gap: 0;
-      margin: 0;
+      margin: 0 0 0.5rem;
 
-      .icon-container {
-        display: inline-flex;
-        align-items: center;
-        
-        img {
-          height: 1.8rem; // Smaller icon
-          width: auto;
-          margin: 0 0.1rem;
-        }
+      .icon-container img {
+        height: 2rem;
+        width: auto;
+        margin: 0 0.1rem;
       }
+    }
+
+    .logo-motto {
+      font-size: 0.95rem;
+      opacity: 0.7;
+      margin: 0;
     }
   }
 
-  .footer-links {
+  .footer-nav {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem; // Tighter links
-    width: 100%;
+    gap: 1.2rem;
 
     @media (min-width: 768px) {
       flex-direction: row;
-      gap: 2rem;
-      width: auto;
+      gap: 2.5rem;
     }
 
     a {
       text-decoration: none;
       color: var(--blanco);
-      font-weight: 500;
-      font-size: 0.85rem; // Smaller links
-      letter-spacing: 1px;
-      transition: color 0.3s ease;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 1.5px;
+      transition: color 0.3s;
+      opacity: 0.8;
 
       &:hover, &.active {
         color: var(--naranja);
+        opacity: 1;
       }
     }
   }
 
-  .social-links {
+  .footer-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 2rem;
+  }
+
+  .footer-bottom {
     display: flex;
+    flex-direction: column;
     gap: 1.5rem;
-    justify-content: center;
-    width: 100%;
+    font-size: 0.85rem;
+    opacity: 0.6;
 
     @media (min-width: 768px) {
-      width: auto;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
     }
+  }
+
+  .footer-extra {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 1rem;
 
     a {
       color: var(--blanco);
       font-size: 1.2rem;
-      transition: all 0.3s ease;
+      transition: color 0.3s;
 
       &:hover {
         color: var(--naranja);
-        transform: translateY(-3px);
       }
     }
   }
 
-  .footer-bottom {
-    width: 100%;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 1.5rem;
-    font-size: 0.75rem; // More subtle bottom text
-    opacity: 0.6;
-
-    p {
-      margin-bottom: 0.3rem;
-    }
-
-    .built-with {
-      font-style: italic;
-
-      .heart {
-        color: var(--naranja);
-      }
+  .built-with {
+    margin: 0;
+    .heart {
+      color: var(--naranja);
+      display: inline-block;
+      animation: pulse 1.5s infinite;
     }
   }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
 }

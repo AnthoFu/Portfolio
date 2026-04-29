@@ -8,6 +8,14 @@
   <div class="top-logo">
     <img src="images/Anthofu_Icon.png" alt="AnthoFu Icon">
   </div>
+
+  <nav class="desktop-nav">
+    <ul class="nav-links-desktop">
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">HOME</a></li>
+      <li><a routerLink="/about" routerLinkActive="active">ABOUT ME</a></li>
+      <li><a routerLink="/projects" routerLinkActive="active">PROJECTS</a></li>
+    </ul>
+  </nav>
 </header>
 
 <nav class="side-nav" [ngClass]="{'open': isMenuOpen}">

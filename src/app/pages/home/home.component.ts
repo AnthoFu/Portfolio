@@ -1,5 +1,5 @@
-import { Component, OnInit, HostListener, Inject, PLATFORM_ID } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { SwipeableDirective } from '../../directives/swipeable.directive';
 import { ProjectService } from '../../services/project.service';
@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
   projects: Project[] = [];
   projectSlidesCount = 0;
   aboutSlidesCount = 3;
-  showScrollTop = false;
 
   topSkills = [
     { name: 'Angular', icon: 'devicon-angular-plain', color: '#DD0031' },
@@ -37,19 +36,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.projects = this.projectService.getFeaturedProjects(3);
     this.projectSlidesCount = this.projects.length + 1; // +1 for "See More" card
-  }
-
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.showScrollTop = window.scrollY > 500;
-    }
-  }
-
-  scrollToTop() {
-    if (isPlatformBrowser(this.platformId)) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
   }
 
   onProjectSwipe(direction: 'left' | 'right') {

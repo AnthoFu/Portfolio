@@ -41,6 +41,59 @@
       height: 35px;
     }
   }
+
+  .desktop-nav {
+    display: none; // Hidden by default (mobile)
+
+    @media (min-width: 1024px) {
+      display: block;
+    }
+
+    .nav-links-desktop {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+
+      li {
+        a {
+          text-decoration: none;
+          color: var(--blanco);
+          font-weight: 700;
+          font-size: 0.9rem;
+          letter-spacing: 1px;
+          transition: color 0.3s;
+          position: relative;
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--naranja);
+            transition: width 0.3s;
+          }
+
+          &:hover, &.active {
+            color: var(--naranja);
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 4rem;
+    height: 80px;
+
+    .hamburger-menu {
+      display: none;
+    }
+  }
 }
 
 .side-nav {
@@ -58,6 +111,10 @@
   display: flex;
   flex-direction: column;
   padding-top: 80px;
+
+  @media (min-width: 1024px) {
+    display: none; // Completely hide side-nav on desktop
+  }
 
   &.open {
     left: 0;
