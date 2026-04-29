@@ -67,9 +67,4 @@ export class HomeComponent implements OnInit {
       this.activeAboutSlide--;
     }
   }
-
-  downloadCV() {
-    // Placeholder for CV download
-    alert('CV Download coming soon!');
-  }
 }

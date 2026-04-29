@@ -248,6 +248,8 @@
       cursor: pointer;
       box-shadow: 0 8px 20px rgba(37, 33, 78, 0.3);
       transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
 
       &:active {
         transform: scale(0.95);
