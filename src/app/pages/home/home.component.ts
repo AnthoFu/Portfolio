@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.projects = this.projectService.getProjects();
+    this.projects = this.projectService.getFeaturedProjects(3);
     this.projectSlidesCount = this.projects.length + 1; // +1 for "See More" card
   }
 

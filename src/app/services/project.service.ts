@@ -12,6 +12,7 @@ export class ProjectService {
       title: 'AnthoFu Portfolio v2',
       year: 2026,
       status: 'active',
+      featured: true,
       period: 'Sep 2025 - Present',
       shortDescription: 'Modernizing and optimizing my personal portfolio with Angular 18 and a focus on UX/UI.',
       fullDescription: 'In this version, I am implementing advanced features like project grouping by year, unified design systems, and advanced animations using the latest Angular features.',
@@ -41,6 +42,7 @@ export class ProjectService {
       title: "Teslo Shop - Fullstack E-commerce API",
       year: 2026,
       status: "completed",
+      featured: true,
       period: "January 2026 - February 2026",
       shortDescription: "A complete e-commerce backend solution featuring a NestJS REST API, PostgreSQL integration, and real-time WebSockets.",
       fullDescription: "Teslo Shop is a robust and scalable e-commerce platform built with modern backend technologies. The project features a comprehensive RESTful API powered by NestJS, with advanced implementations of JWT authentication, custom authorization decorators, and TypeORM for efficient PostgreSQL database management. It also includes a specialized WebSocket service to handle real-time communication and a dedicated client for live interaction.\n\nTechnical Challenges:\nThe main challenge was implementing a secure and flexible authentication and authorization system using JWT and Passport, ensuring granular access control across different user roles. Additionally, managing complex product data with multiple image relationships required a sophisticated database schema and efficient file upload handling with Multer. Integrating real-time features with Socket.io while maintaining strict type safety across the entire system was another significant architectural focus.\n\nResults:\nThe project delivers a production-ready API with full CRUD capabilities, automated database seeding, and a documented structure using Swagger. It provides a powerful and extensible foundation for modern e-commerce applications, complemented by a Vite-based WebSocket client for real-time monitoring and interaction.",
@@ -56,6 +58,7 @@ export class ProjectService {
       title: 'FinanciaMe - Personal Finance Manager',
       year: 2025,
       status: 'active',
+      featured: true,
       period: 'August 2025 - Present',
       shortDescription: 'I developed an offline-first mobile application using React Native and Zustand to help users manage multi-currency finances, track expenses, and reach savings goals with real-time exchange rates.',
       fullDescription: 'FinanciaMe was born from the need for a robust, offline-first personal finance tool tailored for users in multi-currency environments, such as Venezuela. Young professionals often struggle to consolidate balances across different currencies (USD, VES, USDT). This application provides a unified view of their financial health by fetching real-time exchange rates while keeping all sensitive data securely on the device.\n\nTechnical Challenges:\nThe primary challenge was implementing a reliable offline-first architecture. I utilized Zustand with custom persistence logic and migration strategies to ensure data integrity across app updates. Managing complex financial logic, such as multi-currency transfers with commissions and automated recurring expenses, required a strict state management pattern to prevent balance inconsistencies. Additionally, creating a smooth, interactive user experience with Expo Reanimated and custom UI components was essential for user engagement.\n\nResults:\nThe final product is a high-performance, type-safe mobile application built with TypeScript and Expo. Key technologies include Zustand for lightweight state management and React Native Chart Kit for data visualization. The app features a comprehensive budgeting system, savings tracking, and an automated notification system for fixed expenses, making it a complete solution for modern financial management.',
@@ -112,6 +115,13 @@ export class ProjectService {
 
   getProjects(): Project[] {
     return this.projects;
+  }
+
+  getFeaturedProjects(limit: number = 3): Project[] {
+    return this.projects
+      .filter(p => p.featured)
+      .sort((a, b) => b.year - a.year) // Ordenamos por mas reciente primero
+      .slice(0, limit);
   }
 
   getProjectBySlug(slug: string): Project | undefined {

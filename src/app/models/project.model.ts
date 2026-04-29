@@ -3,6 +3,7 @@ export interface Project {
   title: string;
   year: number;
   status?: 'active' | 'completed';
+  featured?: boolean;
   period?: string;
   title_color?: string;
   shortDescription: string;
