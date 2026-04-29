@@ -1,4 +1,4 @@
-<header class="header" [ngClass]="{'menu-open': isMenuOpen}">
+<header class="header" [ngClass]="{'menu-open': isMenuOpen, 'scrolled': isScrolled, 'header-hidden': !isVisible}">
   <div class="hamburger-menu" (click)="toggleMenu()">
     <div class="line" [ngClass]="{'open': isMenuOpen}"></div>
     <div class="line" [ngClass]="{'open': isMenuOpen}"></div>

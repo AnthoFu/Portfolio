@@ -3,14 +3,28 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
-  background-color: var(--azul-1);
+  height: 70px;
+  background-color: var(--azul-1); // Solid background for reliability
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 1.5rem;
   z-index: 1000;
-  transition: background-color 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease, height 0.3s ease;
+
+  &.header-hidden {
+    transform: translateY(-100%); // Slide up to hide
+  }
+
+  &.scrolled {
+    height: 60px; // Slightly more compact when scrolling
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (min-width: 1024px) {
+    background-color: rgba(37, 33, 78, 0.98); // Very subtle transparency for desktop elegance
+    backdrop-filter: blur(5px);
+  }
 
   &.menu-open {
     background-color: transparent; // Make transparent when menu is open for unified look
