@@ -40,16 +40,25 @@
 }
 
 .projects-by-year {
-  overflow-x: hidden; // Prevents whole page horizontal scroll
+  overflow-x: hidden;
 
   .year-section {
-    padding: 5rem 0; // Padding only top/bottom for full width slider
+    padding: 4rem 0; // Fixed: No horizontal padding on mobile for slider
     width: 100%;
     overflow: hidden;
+
+    @media (min-width: 1024px) {
+      padding: 6rem 0;
+    }
 
     .content {
       width: 100%;
       margin: 0 auto;
+      
+      @media (min-width: 1024px) {
+        max-width: 1300px;
+        padding: 0 2.5rem;
+      }
     }
 
     &.bg-white {
@@ -72,6 +81,8 @@
   margin-bottom: 3rem;
   text-align: center;
   position: relative;
+  display: block;
+  width: 100%;
   
   &::after {
     content: '';
@@ -84,6 +95,16 @@
     background-color: var(--naranja);
     border-radius: 2px;
   }
+
+  @media (min-width: 1024px) {
+    text-align: left;
+    margin-bottom: 4rem;
+
+    &::after {
+      left: 0;
+      transform: none;
+    }
+  }
 }
 
 // Slider Logic
@@ -92,8 +113,15 @@
   cursor: grab;
   user-select: none;
 
+  @media (min-width: 1024px) {
+    cursor: default;
+  }
+
   &:active {
     cursor: grabbing;
+    @media (min-width: 1024px) {
+      cursor: default;
+    }
   }
 }
 
@@ -101,6 +129,14 @@
   display: flex;
   width: 100%;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    transform: none !important;
+    justify-content: flex-start;
+  }
 }
 
 .card-slide {
@@ -108,8 +144,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem 1.5rem;
+  padding: 1rem;
   box-sizing: border-box;
+
+  @media (min-width: 1024px) {
+    flex: none;
+    width: 100%;
+    padding: 0;
+    justify-content: flex-start;
+  }
 }
 
 // Pagination Dots
@@ -118,6 +161,10 @@
   justify-content: center;
   gap: 0.5rem;
   margin-top: 2rem;
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
 
   .dot {
     width: 8px;
@@ -144,11 +191,20 @@
   display: flex;
   flex-direction: column;
   transition: all 0.3s ease;
-  min-height: 450px;
+  min-height: 480px; // Slightly more height to prevent cut-offs
   position: relative;
 
-  &:active {
-    transform: scale(0.98);
+  @media (min-width: 1024px) {
+    width: 100%;
+    max-width: 380px;
+    min-height: 500px;
+  }
+
+  &:hover {
+    @media (min-width: 1024px) {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+    }
   }
 
   .active-badge {
@@ -170,6 +226,7 @@
     width: 100%;
     height: 220px;
     object-fit: cover;
+    background-color: #eee; // Placeholder color while image loads
   }
 
   .card-content {
@@ -195,7 +252,7 @@
     flex-grow: 1;
     color: #666;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
