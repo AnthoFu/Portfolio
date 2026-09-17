@@ -173,7 +173,7 @@ graph TD
 
 - **GitHub:** [@AnthoFu](https://github.com/AnthoFu)
 - **Correo Electrónico:** [anthony.fuentes2005@gmail.com](mailto:anthony.fuentes2005@gmail.com)
-- **LinkedIn:** [Anthony Fuentes](https://www.linkedin.com/)
+- **LinkedIn:** [Anthony Fuentes](https://www.linkedin.com/in/anthofu)
 
 ---
 
