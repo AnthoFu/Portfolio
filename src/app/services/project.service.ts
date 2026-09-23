@@ -16,7 +16,7 @@ export class ProjectService {
       year: 2026,
       status: 'active',
       featured: true,
-      period: 'Sep 2025 - Present',
+      period: 'Sep 2025 - Sept 2026',
       shortDescription: {
         en: 'Modern professional portfolio optimized with Angular 18, focused on delivering a high-performance and seamless UX/UI experience.',
         es: 'Portafolio profesional moderno optimizado con Angular 18, enfocado en ofrecer una experiencia de usuario (UX/UI) impecable y de alto rendimiento.'

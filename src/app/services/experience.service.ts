@@ -15,8 +15,8 @@ export class ExperienceService {
       },
       period: 'Oct. 2025 - Present',
       description: {
-        en: 'Working on banking technology solutions, contributing to full-stack development and system optimization.',
-        es: 'Trabajando en soluciones de tecnología bancaria, contribuyendo al desarrollo full-stack y la optimización de sistemas.'
+        en: 'I develop and maintain enterprise financial and fiscal solutions, notably FADI (Digital Invoicing based on Odoo 18 Community) and Gutenberg (Digital Printing platform). I implemented critical business logic including tax and currency calculations, product and contact workflows, and fiscal compliance with SENIAT regulations. I developed and integrated validation microservices using NestJS and event-driven messaging with Kafka, alongside web interfaces and backend services in Angular and PHP. I led the homologation processes between the invoicing system and the digital printing platform, both of which are currently in production serving active clients with daily maintenance and continuous improvements.',
+        es: 'Desarrollo y mantengo soluciones financieras y fiscales empresariales, destacando FADI (Facturador Digital basado en Odoo 18 Community) e Imprenta Digital (Gutenberg). Implementé lógica de negocio crítica para el cálculo de impuestos, montos y gestión de productos/contactos, garantizando el estricto cumplimiento de normativas del SENIAT. Desarrollé e integré microservicios de validación en NestJS y mensajería orientada a eventos con Kafka, junto con interfaces y servicios web en Angular y PHP. Lideré los procesos de homologación entre ambos productos, los cuales se encuentran actualmente en producción atendiendo a clientes reales bajo mantenimiento y mejora continua.'
       },
       logoUrl: 'images/logos/logo_btc.png',
       isCurrent: true
