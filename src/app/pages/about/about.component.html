@@ -107,8 +107,8 @@
 </section>
 
 <!-- Certificate Preview Modal / Lightbox -->
-<div class="certificate-modal-overlay" *ngIf="selectedCertificate" (click)="closeCertificateModal()">
-  <div class="certificate-modal-dialog" (click)="$event.stopPropagation()">
+<div class="certificate-modal-overlay" [class.closing]="isClosingCertificateModal" *ngIf="selectedCertificate" (click)="closeCertificateModal()">
+  <div class="certificate-modal-dialog" [class.closing]="isClosingCertificateModal" (click)="$event.stopPropagation()">
     <button type="button" class="modal-close-btn" (click)="closeCertificateModal()" [attr.aria-label]="'ABOUT.CLOSE_PREVIEW' | translate">
       <i class="fa-solid fa-xmark"></i>
     </button>

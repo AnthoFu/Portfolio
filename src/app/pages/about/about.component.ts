@@ -33,6 +33,7 @@ export class AboutComponent implements OnInit {
   courses: Course[] = [];
   experiences: Experience[] = [];
   selectedCertificate: Course | null = null;
+  isClosingCertificateModal: boolean = false;
 
   techStack: TechCategory[] = [
     {
@@ -108,10 +109,16 @@ export class AboutComponent implements OnInit {
 
   openCertificateModal(course: Course): void {
     this.selectedCertificate = course;
+    this.isClosingCertificateModal = false;
   }
 
   closeCertificateModal(): void {
-    this.selectedCertificate = null;
+    if (this.isClosingCertificateModal || !this.selectedCertificate) return;
+    this.isClosingCertificateModal = true;
+    setTimeout(() => {
+      this.selectedCertificate = null;
+      this.isClosingCertificateModal = false;
+    }, 250);
   }
 
   @HostListener('window:keydown.escape')
