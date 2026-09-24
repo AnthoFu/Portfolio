@@ -74,34 +74,49 @@
 <section class="certifications" id="certifications">
   <div class="content">
     <h2 class="section-title">{{ 'ABOUT.CERTIFICATIONS' | translate }}</h2>
-    <div class="courses-grid">
-      <div class="course-card" *ngFor="let course of courses">
-        <div class="course-image" *ngIf="course.imageUrl" (click)="openCertificateModal(course)" tabindex="0" role="button" [attr.aria-label]="('ABOUT.VIEW_CERTIFICATE' | translate) + ': ' + (course.title | translateData)">
-          <img [src]="course.imageUrl" [alt]="course.title | translateData" loading="lazy">
-          <div class="image-overlay">
-            <i class="fa-solid fa-magnifying-glass-plus"></i>
-            <span>{{ 'ABOUT.VIEW_CERTIFICATE' | translate }}</span>
-          </div>
-        </div>
-        <div class="course-info">
-          <div class="course-header">
-            <h3>{{ course.title | translateData }}</h3>
-            <span class="course-date">{{ course.date }}</span>
-          </div>
-          <p class="course-issuer">{{ course.platform }} - {{ course.issuer }}</p>
-          <div class="course-skills">
-            <span class="skill-tag" *ngFor="let skill of course.skills">{{ skill }}</span>
-          </div>
-          <div class="course-actions">
-            <button type="button" class="btn-cert btn-preview" (click)="openCertificateModal(course)" *ngIf="course.imageUrl">
-              <i class="fa-solid fa-eye"></i> {{ 'ABOUT.VIEW_CERTIFICATE' | translate }}
-            </button>
-            <a [href]="course.pdfUrl" [download]="getDownloadFileName(course)" class="btn-cert btn-download" *ngIf="course.pdfUrl" target="_blank">
-              <i class="fa-solid fa-file-arrow-down"></i> {{ 'ABOUT.DOWNLOAD_PDF' | translate }}
-            </a>
+    
+    <div class="slider-wrapper">
+      <div class="cards-slider"
+           appSwipeable
+           (swipeLeft)="onCourseSwipe('left')"
+           (swipeRight)="onCourseSwipe('right')"
+           [style.transform]="'translateX(' + (-activeCourseSlide * 100) + 'vw)'">
+        <div class="card-slide" *ngFor="let course of courses">
+          <div class="course-card">
+            <div class="course-image" *ngIf="course.imageUrl" (click)="openCertificateModal(course)" tabindex="0" role="button" [attr.aria-label]="('ABOUT.VIEW_CERTIFICATE' | translate) + ': ' + (course.title | translateData)">
+              <img [src]="course.imageUrl" [alt]="course.title | translateData" loading="lazy">
+              <div class="image-overlay">
+                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                <span>{{ 'ABOUT.VIEW_CERTIFICATE' | translate }}</span>
+              </div>
+            </div>
+            <div class="course-info">
+              <div class="course-header">
+                <h3>{{ course.title | translateData }}</h3>
+                <span class="course-date">{{ course.date }}</span>
+              </div>
+              <p class="course-issuer">{{ course.platform }} - {{ course.issuer }}</p>
+              <div class="course-skills">
+                <span class="skill-tag" *ngFor="let skill of course.skills">{{ skill }}</span>
+              </div>
+              <div class="course-actions">
+                <button type="button" class="btn-cert btn-preview" (click)="openCertificateModal(course)" *ngIf="course.imageUrl">
+                  <i class="fa-solid fa-eye"></i> {{ 'ABOUT.VIEW_CERTIFICATE' | translate }}
+                </button>
+                <a [href]="course.pdfUrl" [download]="getDownloadFileName(course)" class="btn-cert btn-download" *ngIf="course.pdfUrl" target="_blank">
+                  <i class="fa-solid fa-file-arrow-down"></i> {{ 'ABOUT.DOWNLOAD_PDF' | translate }}
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Pagination dots for courses in mobile -->
+    <div class="pagination-dots" *ngIf="courses.length > 1">
+      <div *ngFor="let course of courses; let i = index"
+           class="dot" [class.active]="i === activeCourseSlide"></div>
     </div>
   </div>
 </section>

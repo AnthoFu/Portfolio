@@ -4,6 +4,7 @@ import { CourseService } from '../../services/course.service';
 import { Course } from '../../models/course.model';
 import { ExperienceService } from '../../services/experience.service';
 import { Experience } from '../../models/experience.model';
+import { SwipeableDirective } from '../../directives/swipeable.directive';
 
 import { TranslatePipe } from '../../pipes/translate.pipe';
 import { TranslateDataPipe } from '../../pipes/translate-data.pipe';
@@ -23,7 +24,7 @@ interface TechCategory {
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, TranslatePipe, TranslateDataPipe],
+  imports: [CommonModule, TranslatePipe, TranslateDataPipe, SwipeableDirective],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss'
 })
@@ -34,6 +35,7 @@ export class AboutComponent implements OnInit {
   experiences: Experience[] = [];
   selectedCertificate: Course | null = null;
   isClosingCertificateModal: boolean = false;
+  activeCourseSlide: number = 0;
 
   techStack: TechCategory[] = [
     {
@@ -132,5 +134,13 @@ export class AboutComponent implements OnInit {
     if (!course.pdfUrl) return 'certificado.pdf';
     const parts = course.pdfUrl.split('/');
     return parts[parts.length - 1];
+  }
+
+  onCourseSwipe(direction: 'left' | 'right'): void {
+    if (direction === 'left' && this.activeCourseSlide < this.courses.length - 1) {
+      this.activeCourseSlide++;
+    } else if (direction === 'right' && this.activeCourseSlide > 0) {
+      this.activeCourseSlide--;
+    }
   }
 }
