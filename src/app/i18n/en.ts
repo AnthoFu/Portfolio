@@ -34,7 +34,12 @@ export const EN = {
     COMING_SOON_DESC: 'I am currently expanding my knowledge and working on new professional challenges. Stay tuned for updates!',
     MORE_EXPERIENCE: 'More experience',
     CERTIFICATIONS: 'Certifications & Courses',
-    VIEW_CERTIFICATE: 'View Certificate'
+    VIEW_CERTIFICATE: 'View Certificate',
+    DOWNLOAD_PDF: 'Download PDF',
+    CLOSE_PREVIEW: 'Close preview',
+    CERTIFICATE_PREVIEW: 'Certificate Preview',
+    OPEN_IN_NEW_TAB: 'Open image in new tab',
+    VERIFY_CERTIFICATE: 'Verify on Platzi'
   },
   PROJECTS: {
     TITLE: 'Projects',

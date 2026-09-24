@@ -76,8 +76,12 @@
     <h2 class="section-title">{{ 'ABOUT.CERTIFICATIONS' | translate }}</h2>
     <div class="courses-grid">
       <div class="course-card" *ngFor="let course of courses">
-        <div class="course-image" *ngIf="course.imageUrl">
-          <img [src]="course.imageUrl" [alt]="course.title | translateData">
+        <div class="course-image" *ngIf="course.imageUrl" (click)="openCertificateModal(course)" tabindex="0" role="button" [attr.aria-label]="('ABOUT.VIEW_CERTIFICATE' | translate) + ': ' + (course.title | translateData)">
+          <img [src]="course.imageUrl" [alt]="course.title | translateData" loading="lazy">
+          <div class="image-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+            <span>{{ 'ABOUT.VIEW_CERTIFICATE' | translate }}</span>
+          </div>
         </div>
         <div class="course-info">
           <div class="course-header">
@@ -88,11 +92,49 @@
           <div class="course-skills">
             <span class="skill-tag" *ngFor="let skill of course.skills">{{ skill }}</span>
           </div>
-          <a [href]="course.certificateUrl" target="_blank" class="certificate-link" *ngIf="course.certificateUrl">
-            <i class="fa-solid fa-certificate"></i> {{ 'ABOUT.VIEW_CERTIFICATE' | translate }}
-          </a>
+          <div class="course-actions">
+            <button type="button" class="btn-cert btn-preview" (click)="openCertificateModal(course)" *ngIf="course.imageUrl">
+              <i class="fa-solid fa-eye"></i> {{ 'ABOUT.VIEW_CERTIFICATE' | translate }}
+            </button>
+            <a [href]="course.pdfUrl" [download]="getDownloadFileName(course)" class="btn-cert btn-download" *ngIf="course.pdfUrl" target="_blank">
+              <i class="fa-solid fa-file-arrow-down"></i> {{ 'ABOUT.DOWNLOAD_PDF' | translate }}
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Certificate Preview Modal / Lightbox -->
+<div class="certificate-modal-overlay" *ngIf="selectedCertificate" (click)="closeCertificateModal()">
+  <div class="certificate-modal-dialog" (click)="$event.stopPropagation()">
+    <button type="button" class="modal-close-btn" (click)="closeCertificateModal()" [attr.aria-label]="'ABOUT.CLOSE_PREVIEW' | translate">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    
+    <div class="modal-header">
+      <h3>{{ selectedCertificate.title | translateData }}</h3>
+      <div class="modal-meta">
+        <span class="issuer-badge"><i class="fa-solid fa-award"></i> {{ selectedCertificate.platform }} - {{ selectedCertificate.issuer }}</span>
+        <span class="date-badge"><i class="fa-regular fa-calendar"></i> {{ selectedCertificate.date }}</span>
+      </div>
+    </div>
+
+    <div class="modal-image-container" *ngIf="selectedCertificate.imageUrl">
+      <img [src]="selectedCertificate.imageUrl" [alt]="selectedCertificate.title | translateData">
+    </div>
+
+    <div class="modal-footer">
+      <a [href]="selectedCertificate.certificateUrl" target="_blank" rel="noopener noreferrer" class="modal-btn modal-btn-secondary" *ngIf="selectedCertificate.certificateUrl">
+        <i class="fa-solid fa-square-check"></i> {{ 'ABOUT.VERIFY_CERTIFICATE' | translate }}
+      </a>
+      <a [href]="selectedCertificate.imageUrl" target="_blank" class="modal-btn modal-btn-secondary" *ngIf="selectedCertificate.imageUrl">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i> {{ 'ABOUT.OPEN_IN_NEW_TAB' | translate }}
+      </a>
+      <a [href]="selectedCertificate.pdfUrl" [download]="getDownloadFileName(selectedCertificate)" class="modal-btn modal-btn-primary" *ngIf="selectedCertificate.pdfUrl" target="_blank">
+        <i class="fa-solid fa-file-arrow-down"></i> {{ 'ABOUT.DOWNLOAD_PDF' | translate }}
+      </a>
+    </div>
+  </div>
+</div>

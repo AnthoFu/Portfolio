@@ -6,5 +6,6 @@ export interface Course {
   date: string;
   imageUrl?: string;
   certificateUrl?: string;
+  pdfUrl?: string;
   skills: string[];
 }

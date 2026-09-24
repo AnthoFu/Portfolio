@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CourseService } from '../../services/course.service';
 import { Course } from '../../models/course.model';
@@ -32,6 +32,7 @@ export class AboutComponent implements OnInit {
   private experienceService = inject(ExperienceService);
   courses: Course[] = [];
   experiences: Experience[] = [];
+  selectedCertificate: Course | null = null;
 
   techStack: TechCategory[] = [
     {
@@ -103,5 +104,26 @@ export class AboutComponent implements OnInit {
     this.experienceService.getExperiences().subscribe(experiences => {
       this.experiences = experiences;
     });
+  }
+
+  openCertificateModal(course: Course): void {
+    this.selectedCertificate = course;
+  }
+
+  closeCertificateModal(): void {
+    this.selectedCertificate = null;
+  }
+
+  @HostListener('window:keydown.escape')
+  handleEscape(): void {
+    if (this.selectedCertificate) {
+      this.closeCertificateModal();
+    }
+  }
+
+  getDownloadFileName(course: Course): string {
+    if (!course.pdfUrl) return 'certificado.pdf';
+    const parts = course.pdfUrl.split('/');
+    return parts[parts.length - 1];
   }
 }
