@@ -37,6 +37,40 @@ export class ProjectService {
     },
 
     {
+      slug: 'vulpis-audio-player',
+      title: 'Vulpis - Premium Mobile Audio Player',
+      year: 2026,
+      status: 'active',
+      featured: true,
+      period: 'June 2026 - Present',
+      shortDescription: {
+        en: 'High-performance mobile audio player built with React Native and Expo, featuring Google Drive cloud streaming, JSI zero-latency polling, and intelligent on-demand caching.',
+        es: 'Reproductor de audio móvil de alto rendimiento desarrollado con React Native y Expo, con streaming desde Google Drive, polling JSI de latencia cero y caché inteligente bajo demanda.'
+      },
+      fullDescription: {
+        en: 'Vulpis is a modern, feature-packed mobile audio player engineered with React Native and Expo (SDK 56). It unifies local device playback with private cloud streaming (Google Drive) into a seamless, high-fidelity listening experience.\n\nTechnical Highlights:\n• Native Audio Engine & JSI Architecture: Built on top of @rntp/player using React Native\'s New Architecture. Implemented active JSI polling (zero-latency C++ getters) to bypass native event emitter limitations in Android and guarantee real-time UI synchronization.\n• Secure Cloud Streaming & Cross-Domain Bypass: Integrated OAuth 2.0 with PKCE for Google Drive access. Solved ExoPlayer\'s cross-domain header loss (403 Forbidden issue) by developing an on-demand download interceptor with expo-file-system that caches tracks locally for offline, buffer-free playback.\n• Advanced Acoustic DSP: Implemented ReplayGain volume normalization (supporting ID3v2 TXXX/RVA2, Apple Sound Check iTunNORM, and anti-clipping limiter) and smooth Crossfade transitions between songs.\n• Smart Metadata & Synchronized Lyrics: Extracts ID3 tags and album colors dynamically, integrating the LRCLIB API with Sørensen-Dice fuzzy matching for synchronized (.lrc) lyrics and fallback caching.\n• Concurrency & State Optimization: Built with custom hooks, debounced interaction locking (isProcessing) to prevent race conditions, and deep-equality checks in FlatLists to prevent memory overflow (CursorWindow sanitization).',
+        es: 'Vulpis es un reproductor de audio móvil moderno y de alto rendimiento desarrollado con React Native y Expo (SDK 56). Unifica la reproducción de música local y el streaming desde la nube privada (Google Drive) en una experiencia fluida y de alta fidelidad.\n\nAspectos Técnicos Destacados:\n• Motor de Audio Nativo y Arquitectura JSI: Desarrollado sobre @rntp/player aprovechando la Nueva Arquitectura de React Native. Implementa polling activo sobre JSI (consultas síncronas en C++ con latencia cero) para garantizar una sincronización perfecta de la interfaz en Android.\n• Streaming Seguro en la Nube y Caché en Demanda: Autenticación OAuth 2.0 con PKCE para Google Drive. Resuelve el bloqueo de redirección de ExoPlayer (error 403 por pérdida de cabeceras de autorización) mediante un interceptor de descarga con expo-file-system que almacena pistas en caché local para una reproducción instantánea sin buffering.\n• Procesamiento Acústico Avanzado (DSP): Incorpora normalización de volumen ReplayGain (compatible con etiquetas ID3v2 TXXX/RVA2, Apple Sound Check iTunNORM y limitador anti-saturación) junto a transiciones de fundido cruzado (Crossfade).\n• Metadatos Inteligentes y Letras Sincronizadas: Extracción de metadatos ID3 y paleta de color dinámica de carátulas, con búsqueda automática de letras en LRCLIB mediante coincidencia difusa (coeficiente Sørensen-Dice) y caché persistente.\n• Concurrencia y Optimización de Estado: Arquitectura modular basada en Custom Hooks, bloqueo de condiciones de carrera (debouncing con isProcessing) y optimización de listas con saneamiento de memoria para evitar desbordamientos de CursorWindow.'
+      },
+      technologies: [
+        'React Native',
+        'Expo',
+        'JavaScript (ES6+)',
+        '@rntp/player',
+        'Google Drive API',
+        'OAuth 2.0 (PKCE)',
+        'AsyncStorage',
+        'DSP / Audio Processing'
+      ],
+      images: [
+        'images/vulpis/biblioteca_local.jpeg',
+        'images/vulpis/biblioteca_drive.jpeg',
+        'images/vulpis/cola_local.jpeg'
+      ],
+      selectedImageIndex: 0,
+      repository: 'https://github.com/AnthoFu/Vulpis'
+    },
+
+    {
       slug: 'anthocito-discord-bot',
       title: 'Anthocito Bot - Discord Assistant',
       year: 2025,
@@ -87,8 +121,8 @@ export class ProjectService {
     {
       slug: 'financiame-mobile-app',
       title: 'FinanciaMe - Personal Finance Manager',
-      year: 2025,
-      status: 'active',
+      year: 2026,
+      status: 'completed',
       featured: true,
       period: 'August 2025 - Present',
       shortDescription: {
