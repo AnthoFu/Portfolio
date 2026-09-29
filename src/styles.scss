@@ -7,12 +7,16 @@
   font-style: normal;
 }
 
-/* Variables globales para el manejo de la paleta de colores*/
+/* Variables globales para el manejo de la paleta de colores y transiciones */
 :root {
   --azul-1: #25214E;
   --azul-2: #16132A;
   --blanco: #F2F2F2;
   --naranja: #F39200;
+  --naranja-glow: rgba(243, 146, 0, 0.35);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Estilos basicos */
@@ -22,12 +26,72 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   background-color: var(--azul-2);
   color: var(--blanco);
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Mono Bold', sans-serif;
+}
+
+/* Clases base para scroll reveal suave */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-smooth);
+  will-change: opacity, transform;
+
+  &.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.8s var(--ease-smooth);
+  will-change: opacity;
+
+  &.is-revealed {
+    opacity: 1;
+  }
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-spring);
+  will-change: opacity, transform;
+
+  &.is-revealed {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Accesibilidad: Respetar preferencias de reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-item,
+  .reveal-fade,
+  .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }

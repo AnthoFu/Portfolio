@@ -1,7 +1,8 @@
 import { Component, OnInit, Inject, PLATFORM_ID, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { SwipeableDirective } from '../../directives/swipeable.directive';
+import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
 import { ProjectService } from '../../services/project.service';
 import { Project } from '../../models/project.model';
 import { TranslatePipe } from '../../pipes/translate.pipe';
@@ -10,12 +11,20 @@ import { TranslateDataPipe } from '../../pipes/translate-data.pipe';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterLink, SwipeableDirective, TranslatePipe, TranslateDataPipe],
+  imports: [
+    CommonModule, 
+    RouterLink, 
+    SwipeableDirective, 
+    ScrollRevealDirective,
+    TranslatePipe, 
+    TranslateDataPipe
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
   private projectService = inject(ProjectService);
+  private isBrowser: boolean;
   
   activeProjectSlide = 0;
   activeAboutSlide = 0;
@@ -34,11 +43,21 @@ export class HomeComponent implements OnInit {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 
   ngOnInit(): void {
     this.projects = this.projectService.getFeaturedProjects(3);
     this.projectSlidesCount = this.projects.length + 1; // +1 for "See More" card
+  }
+
+  scrollToIntro(): void {
+    if (!this.isBrowser) return;
+    const introElement = document.getElementById('intro');
+    if (introElement) {
+      introElement.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
   onProjectSwipe(direction: 'left' | 'right') {
@@ -57,3 +76,4 @@ export class HomeComponent implements OnInit {
     }
   }
 }
+

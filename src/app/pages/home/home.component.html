@@ -3,7 +3,7 @@
     <div class="code-bg-placeholder"></div>
 
     <h1 class="main-title">
-      Anth<span class="icon-container"><img src="images/anthofu/Anthofu_Icon.png" alt="Icono AnthoFu"></span>u
+      Anth<span class="icon-container" title="AnthoFu"><img src="images/anthofu/Anthofu_Icon.png" alt="Icono AnthoFu"></span>u
     </h1>
 
     <p class="subtitle">{{ 'HOME.TITLE' | translate }}</p>
@@ -14,44 +14,55 @@
 
     <!-- Skills Preview on Home for faster discovery -->
     <div class="top-skills-preview">
-      <div class="skill-pill" *ngFor="let skill of topSkills" [style.border-color]="skill.color">
+      <div class="skill-pill" *ngFor="let skill of topSkills; let i = index" 
+           [style.--index]="i" 
+           [style.--pill-color]="skill.color"
+           [style.border-color]="skill.color">
         <i [class]="skill.icon" [style.color]="skill.color"></i>
         <span>{{ skill.name }}</span>
       </div>
     </div>
 
-    <div class="scroll-hint">
+    <div class="scroll-hint" (click)="scrollToIntro()" role="button" tabindex="0" title="Scroll down" (keyup.enter)="scrollToIntro()">
       <i class="fa-solid fa-chevron-down"></i>
     </div>
   </div>
 </section>
 
-<section class="intro-section">
-  <div class="intro-card">
+<section class="intro-section" id="intro">
+  <div class="intro-card" appScrollReveal [revealThreshold]="0.2">
     <h2>{{ 'HOME.GREETING' | translate }}</h2>
     <p>
       {{ 'HOME.INTRO' | translate }}
     </p>
-    <a href="docs/ONEPAGE_CV-Anthony_Fuentes-2026.docx.pdf" download="Anthony_Fuentes_CV.pdf" class="cv-button">{{ 'HOME.DOWNLOAD_CV' | translate }}</a>
+    <a href="docs/ONEPAGE_CV-Anthony_Fuentes-2026.docx.pdf" download="Anthony_Fuentes_CV.pdf" class="cv-button">
+      <span>{{ 'HOME.DOWNLOAD_CV' | translate }}</span>
+      <i class="fa-solid fa-download"></i>
+    </a>
   </div>
 </section>
 
 <section class="projects-preview">
-  <h2 class="section-title">{{ 'HOME.FEATURED_PROJECTS' | translate }}</h2>
+  <h2 class="section-title" appScrollReveal [revealThreshold]="0.2">{{ 'HOME.FEATURED_PROJECTS' | translate }}</h2>
   <div class="cards-container" appSwipeable (swipeLeft)="onProjectSwipe('left')" (swipeRight)="onProjectSwipe('right')">
     <!-- Card Project -->
-    <div class="card-slide" *ngFor="let project of projects">
+    <div class="card-slide" *ngFor="let project of projects; let i = index" appScrollReveal [revealDelay]="i * 120" [revealThreshold]="0.15">
       <div class="project-card">
-        <img [src]="project.images[0]" [alt]="project.title" class="card-image">
+        <div class="card-image-wrapper">
+          <img [src]="project.images[0]" [alt]="project.title" class="card-image" loading="lazy">
+        </div>
         <div class="card-content">
           <h3 class="card-title">{{ project.title }}</h3>
           <p class="card-description">{{ project.shortDescription | translateData }}</p>
-          <a [routerLink]="['/projects', project.slug]" class="card-button">{{ 'HOME.VIEW_PROJECT' | translate }}</a>
+          <a [routerLink]="['/projects', project.slug]" class="card-button">
+            <span>{{ 'HOME.VIEW_PROJECT' | translate }}</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
         </div>
       </div>
     </div>
     <!-- "See More" Card -->
-    <div class="card-slide see-more-slide">
+    <div class="card-slide see-more-slide" appScrollReveal [revealDelay]="projects.length * 120" [revealThreshold]="0.15">
       <a routerLink="/projects" class="see-more-card">
         <span class="see-more-icon">+</span>
         <h3 class="see-more-text">{{ 'HOME.SEE_MORE_PROJECTS' | translate }}</h3>
@@ -60,9 +71,10 @@
   </div>
 
   <!-- View All Projects Button (PC only) -->
-  <div class="see-more-container-pc">
+  <div class="see-more-container-pc" appScrollReveal [revealThreshold]="0.2">
     <a routerLink="/projects" class="see-more-link">
-      {{ 'HOME.VIEW_ALL_PROJECTS' | translate }} <i class="fa-solid fa-arrow-right"></i>
+      <span>{{ 'HOME.VIEW_ALL_PROJECTS' | translate }}</span>
+      <i class="fa-solid fa-arrow-right"></i>
     </a>
   </div>
   
@@ -73,39 +85,48 @@
 </section>
 
 <section class="more-about">
-  <h2 class="section-title">{{ 'HOME.MORE_ABOUT' | translate }}</h2>
+  <h2 class="section-title" appScrollReveal [revealThreshold]="0.2">{{ 'HOME.MORE_ABOUT' | translate }}</h2>
   <div class="cards-container" appSwipeable (swipeLeft)="onAboutSwipe('left')" (swipeRight)="onAboutSwipe('right')">
     <!-- Card 1 -->
-    <div class="card-slide">
+    <div class="card-slide" appScrollReveal [revealDelay]="0" [revealThreshold]="0.15">
       <div class="about-card">
         <div class="card-icon-wrapper">
           <i class="fa-solid fa-layer-group"></i>
         </div>
         <h3 class="card-title">{{ 'HOME.TECH_STACK' | translate }}</h3>
         <p class="card-description">{{ 'HOME.TECH_STACK_DESC' | translate }}</p>
-        <a routerLink="/about" fragment="skills" class="card-button-outline">{{ 'HOME.SEE_SKILLS' | translate }}</a>
+        <a routerLink="/about" fragment="skills" class="card-button-outline">
+          <span>{{ 'HOME.SEE_SKILLS' | translate }}</span>
+          <i class="fa-solid fa-chevron-right"></i>
+        </a>
       </div>
     </div>
     <!-- Card 2 -->
-    <div class="card-slide">
+    <div class="card-slide" appScrollReveal [revealDelay]="120" [revealThreshold]="0.15">
       <div class="about-card">
         <div class="card-icon-wrapper">
           <i class="fa-solid fa-user-astronaut"></i>
         </div>
         <h3 class="card-title">{{ 'HOME.ABOUT_ME' | translate }}</h3>
         <p class="card-description">{{ 'HOME.ABOUT_ME_DESC' | translate }}</p>
-        <a routerLink="/about" fragment="about" class="card-button-outline">{{ 'HOME.READ_MORE' | translate }}</a>
+        <a routerLink="/about" fragment="about" class="card-button-outline">
+          <span>{{ 'HOME.READ_MORE' | translate }}</span>
+          <i class="fa-solid fa-chevron-right"></i>
+        </a>
       </div>
     </div>
     <!-- Card 3 -->
-    <div class="card-slide">
+    <div class="card-slide" appScrollReveal [revealDelay]="240" [revealThreshold]="0.15">
       <div class="about-card">
         <div class="card-icon-wrapper">
           <i class="fa-solid fa-briefcase"></i>
         </div>
         <h3 class="card-title">{{ 'HOME.EXPERIENCE' | translate }}</h3>
         <p class="card-description">{{ 'HOME.EXPERIENCE_DESC' | translate }}</p>
-        <a routerLink="/about" fragment="experience" class="card-button-outline">{{ 'HOME.VIEW_EXPERIENCE' | translate }}</a>
+        <a routerLink="/about" fragment="experience" class="card-button-outline">
+          <span>{{ 'HOME.VIEW_EXPERIENCE' | translate }}</span>
+          <i class="fa-solid fa-chevron-right"></i>
+        </a>
       </div>
     </div>
   </div>
@@ -115,3 +136,4 @@
          class="dot" [class.active]="i === activeAboutSlide"></div>
   </div>
 </section>
+
