@@ -12,7 +12,7 @@
   <!-- Active Projects Section -->
   <section class="year-section bg-white" *ngIf="activeProjects.length > 0">
     <div class="content">
-      <h2 class="year-title">{{ 'PROJECTS.WORKING_ON' | translate }}</h2>
+      <h2 class="year-title" appScrollReveal [revealThreshold]="0.2">{{ 'PROJECTS.WORKING_ON' | translate }}</h2>
       
       <div class="slider-wrapper">
         <div class="cards-slider" 
@@ -20,14 +20,22 @@
              (swipeLeft)="onActiveSwipe('left')" 
              (swipeRight)="onActiveSwipe('right')"
              [style.transform]="'translateX(' + (-activeProjectsIndex * 100) + 'vw)'">
-          <div class="card-slide" *ngFor="let project of activeProjects">
+          <div class="card-slide" *ngFor="let project of activeProjects; let i = index" appScrollReveal [revealDelay]="i * 100" [revealThreshold]="0.15">
             <div class="project-card">
-              <div class="active-badge">{{ 'PROJECTS.IN_PROGRESS' | translate }}</div>
-              <img [src]="project.images[0]" [alt]="project.title" class="card-image">
+              <div class="active-badge">
+                <span class="active-pulse"></span>
+                <span>{{ 'PROJECTS.IN_PROGRESS' | translate }}</span>
+              </div>
+              <div class="card-image-wrapper">
+                <img [src]="project.images[0]" [alt]="project.title" class="card-image" loading="lazy">
+              </div>
               <div class="card-content">
                 <h3 class="card-title">{{ project.title }}</h3>
                 <p class="card-description">{{ project.shortDescription | translateData }}</p>
-                <a [routerLink]="['/projects', project.slug]" class="card-button">{{ 'PROJECTS.VIEW_PROJECT' | translate }}</a>
+                <a [routerLink]="['/projects', project.slug]" class="card-button">
+                  <span>{{ 'PROJECTS.VIEW_PROJECT' | translate }}</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -50,7 +58,7 @@
     class="year-section"
   >
     <div class="content">
-      <h2 class="year-title">{{ group.year }}</h2>
+      <h2 class="year-title" appScrollReveal [revealThreshold]="0.2">{{ group.year }}</h2>
       
       <div class="slider-wrapper">
         <div class="cards-slider" 
@@ -58,13 +66,18 @@
              (swipeLeft)="onYearSwipe('left', i)" 
              (swipeRight)="onYearSwipe('right', i)"
              [style.transform]="'translateX(' + (-group.activeIndex * 100) + 'vw)'">
-          <div class="card-slide" *ngFor="let project of group.projects">
+          <div class="card-slide" *ngFor="let project of group.projects; let j = index" appScrollReveal [revealDelay]="j * 100" [revealThreshold]="0.15">
             <div class="project-card">
-              <img [src]="project.images[0]" [alt]="project.title" class="card-image">
+              <div class="card-image-wrapper">
+                <img [src]="project.images[0]" [alt]="project.title" class="card-image" loading="lazy">
+              </div>
               <div class="card-content">
                 <h3 class="card-title">{{ project.title }}</h3>
                 <p class="card-description">{{ project.shortDescription | translateData }}</p>
-                <a [routerLink]="['/projects', project.slug]" class="card-button">{{ 'PROJECTS.VIEW_PROJECT' | translate }}</a>
+                <a [routerLink]="['/projects', project.slug]" class="card-button">
+                  <span>{{ 'PROJECTS.VIEW_PROJECT' | translate }}</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -79,3 +92,4 @@
     </div>
   </section>
 </div>
+

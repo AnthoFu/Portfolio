@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SwipeableDirective } from '../../directives/swipeable.directive';
+import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
 import { ProjectService } from '../../services/project.service';
 import { Project } from '../../models/project.model';
 
@@ -11,7 +12,14 @@ import { TranslateDataPipe } from '../../pipes/translate-data.pipe';
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, SwipeableDirective, RouterModule, TranslatePipe, TranslateDataPipe],
+  imports: [
+    CommonModule, 
+    SwipeableDirective, 
+    ScrollRevealDirective,
+    RouterModule, 
+    TranslatePipe, 
+    TranslateDataPipe
+  ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })

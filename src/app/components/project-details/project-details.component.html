@@ -2,16 +2,20 @@
   <div class="project-card-details">
     <div class="gallery-section">
       <div class="main-image">
-        <img [src]="project.images[project.selectedImageIndex]" alt="Project preview">
+        <img [src]="project.images[project.selectedImageIndex]" [alt]="project.title + ' preview'" loading="eager">
       </div>
-      <div class="thumbnails">
+      <div class="thumbnails" *ngIf="project.images.length > 1">
         <div 
           class="thumb" 
           *ngFor="let img of project.images; let i = index" 
           [class.active]="project.selectedImageIndex === i"
           (click)="project.selectedImageIndex = i"
+          tabindex="0"
+          role="button"
+          (keyup.enter)="project.selectedImageIndex = i"
+          [attr.aria-label]="'Select image ' + (i + 1)"
         >
-          <img [src]="img" alt="Thumbnail">
+          <img [src]="img" [alt]="'Thumbnail ' + (i + 1)">
         </div>
       </div>
     </div>
@@ -26,25 +30,26 @@
 
       <div class="tech-stack">
         <div class="tech-tag" *ngFor="let tech of project.technologies">
-          <span class="tech-icon"></span>
-          {{ tech }}
+          <span class="tech-icon"><i class="fa-solid fa-code"></i></span>
+          <span>{{ tech }}</span>
         </div>
       </div>
 
       <div class="actions">
-        <a *ngIf="project.repository" [href]="project.repository" target="_blank" class="btn-action">
+        <a *ngIf="project.repository" [href]="project.repository" target="_blank" rel="noopener noreferrer" class="btn-action btn-repo">
           <i class="fa-brands fa-github"></i>
-          {{ 'PROJECTS.REPOSITORY' | translate }}
+          <span>{{ 'PROJECTS.REPOSITORY' | translate }}</span>
         </a>
-        <a *ngIf="project.liveDemo" [href]="project.liveDemo" target="_blank" class="btn-action">
+        <a *ngIf="project.liveDemo" [href]="project.liveDemo" target="_blank" rel="noopener noreferrer" class="btn-action btn-demo">
           <i class="fa-solid fa-rocket"></i>
-          {{ 'PROJECTS.LIVE_DEMO' | translate }}
+          <span>{{ 'PROJECTS.LIVE_DEMO' | translate }}</span>
         </a>
       </div>
     </div>
 
-    <a routerLink="/projects" class="close-btn">
-      <span class="back-icon">←</span> {{ 'COMMON.BACK' | translate }}
+    <a routerLink="/projects" class="close-btn" [attr.aria-label]="'COMMON.BACK' | translate">
+      <span class="back-icon"><i class="fa-solid fa-arrow-left"></i></span>
+      <span>{{ 'COMMON.BACK' | translate }}</span>
     </a>
   </div>
 </div>
@@ -53,3 +58,4 @@
   <p>{{ 'PROJECTS.NOT_FOUND' | translate }}</p>
   <a routerLink="/projects">{{ 'COMMON.BACK' | translate }}</a>
 </div>
+
