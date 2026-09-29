@@ -2,7 +2,7 @@
 <section class="about-me" id="about">
   <div class="content">
     <h1 class="page-title">{{ 'ABOUT.TITLE' | translate }}</h1>
-    <div class="about-card">
+    <div class="about-card" appScrollReveal [revealThreshold]="0.15">
       <img src="images/anthofu/Anthofu_photo-2.jpeg" alt="AnthoFu profile photo" class="profile-photo">
       <p>
         {{ 'ABOUT.BIO' | translate }}
@@ -13,14 +13,15 @@
 
 <section class="tech-stack" id="skills">
   <div class="content">
-    <h2 class="section-title">{{ 'ABOUT.TECH_STACK' | translate }}</h2>
-    <div class="stack-container">
-      <div class="stack-category" *ngFor="let category of techStack">
+    <h2 class="section-title" appScrollReveal [revealThreshold]="0.2">{{ 'ABOUT.TECH_STACK' | translate }}</h2>
+    <div class="stack-container" appScrollReveal [revealThreshold]="0.1">
+      <div class="stack-category" *ngFor="let category of techStack; let i = index" appScrollReveal [revealDelay]="i * 80" [revealThreshold]="0.1">
         <h3>{{ category.titleKey | translate }}</h3>
         <div class="tags">
           <span class="tag" *ngFor="let item of category.items" 
                 [style.background-color]="item.color" 
-                [style.color]="item.textColor || '#FFF'">
+                [style.color]="item.textColor || '#FFF'"
+                [style.--tag-color]="item.color">
             <ng-container *ngIf="item.icon.includes('/'); else iconFont">
               <img [src]="item.icon" [alt]="item.name + ' logo'" class="tag-image">
             </ng-container>
@@ -37,8 +38,8 @@
 
 <section class="experience" id="experience">
   <div class="content">
-    <h2 class="section-title">{{ 'ABOUT.EXPERIENCE' | translate }}</h2>
-    <div class="experience-card" *ngFor="let exp of experiences">
+    <h2 class="section-title" appScrollReveal [revealThreshold]="0.2">{{ 'ABOUT.EXPERIENCE' | translate }}</h2>
+    <div class="experience-card" *ngFor="let exp of experiences; let i = index" appScrollReveal [revealDelay]="i * 120" [revealThreshold]="0.15">
       <div class="experience-header">
         <div class="company-logo" *ngIf="exp.logoUrl">
             <img [src]="exp.logoUrl" [alt]="exp.company + ' logo'">
@@ -53,7 +54,7 @@
         {{ exp.description | translateData }}
       </p>
     </div>
-    <div class="experience-card placeholder">
+    <div class="experience-card placeholder" appScrollReveal [revealDelay]="experiences.length * 120" [revealThreshold]="0.15">
       <div class="experience-header">
         <div class="company-logo">
           <i class="fas fa-briefcase"></i>
@@ -73,7 +74,7 @@
 
 <section class="certifications" id="certifications">
   <div class="content">
-    <h2 class="section-title">{{ 'ABOUT.CERTIFICATIONS' | translate }}</h2>
+    <h2 class="section-title" appScrollReveal [revealThreshold]="0.2">{{ 'ABOUT.CERTIFICATIONS' | translate }}</h2>
     
     <div class="slider-wrapper">
       <div class="cards-slider"
@@ -81,7 +82,7 @@
            (swipeLeft)="onCourseSwipe('left')"
            (swipeRight)="onCourseSwipe('right')"
            [style.transform]="'translateX(' + (-activeCourseSlide * 100) + 'vw)'">
-        <div class="card-slide" *ngFor="let course of courses">
+        <div class="card-slide" *ngFor="let course of courses; let i = index" appScrollReveal [revealDelay]="i * 70" [revealThreshold]="0.1">
           <div class="course-card">
             <div class="course-image" *ngIf="course.imageUrl" (click)="openCertificateModal(course)" tabindex="0" role="button" [attr.aria-label]="('ABOUT.VIEW_CERTIFICATE' | translate) + ': ' + (course.title | translateData)">
               <img [src]="course.imageUrl" [alt]="course.title | translateData" loading="lazy">
@@ -153,3 +154,4 @@
     </div>
   </div>
 </div>
+

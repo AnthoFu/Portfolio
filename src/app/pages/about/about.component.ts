@@ -5,6 +5,7 @@ import { Course } from '../../models/course.model';
 import { ExperienceService } from '../../services/experience.service';
 import { Experience } from '../../models/experience.model';
 import { SwipeableDirective } from '../../directives/swipeable.directive';
+import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
 
 import { TranslatePipe } from '../../pipes/translate.pipe';
 import { TranslateDataPipe } from '../../pipes/translate-data.pipe';
@@ -24,7 +25,13 @@ interface TechCategory {
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, TranslatePipe, TranslateDataPipe, SwipeableDirective],
+  imports: [
+    CommonModule, 
+    TranslatePipe, 
+    TranslateDataPipe, 
+    SwipeableDirective,
+    ScrollRevealDirective
+  ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss'
 })
