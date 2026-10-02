@@ -9,3 +9,4 @@
 - [x] Mejora de animaciones, dinamismo (Projects y Project Details)
 - [x] Formalización de las imágenes responsivas (tanto mobile como desktop)
 - [ ] Mejorar las fotos de ejemplo de los proyectos (ver guía en [05_Guia_de_Imagenes_y_Banners.md](./docs/05_Guia_de_Imagenes_y_Banners.md))
+- [ ] Easter egg con mi icono (GD)

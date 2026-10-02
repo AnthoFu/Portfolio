@@ -135,6 +135,7 @@ export class ProjectService {
       },
       technologies: ['React Native', 'TypeScript', 'Zustand', 'Expo', 'Reanimated'],
       images: [
+        'images/financiame/banner_financiame.png',
         'images/financiame/screenshot-home.jpg', 
         'images/financiame/screenshot-billeteras.jpg', 
         'images/financiame/screenshot-metas.jpg'
