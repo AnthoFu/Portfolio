@@ -27,9 +27,9 @@ export class ProjectService {
       },
       technologies: ['Angular', 'SCSS', 'TypeScript'],
       images: [
-        'images/portfolio_v2/portfolio_v2_home_pc.png',
-        'images/portfolio_v2/portfolio_v2_experience_pc.png',
-        'images/portfolio_v2/portfolio_v2_projects_mobile.png'
+        '/images/portfolio_v2/portfolio_v2_home_pc.png',
+        '/images/portfolio_v2/portfolio_v2_experience_pc.png',
+        '/images/portfolio_v2/portfolio_v2_projects_mobile.png'
       ],
       selectedImageIndex: 0,
       liveDemo: 'https://anthofu-portfolio.firebaseapp.com',
@@ -62,9 +62,9 @@ export class ProjectService {
         'DSP / Audio Processing'
       ],
       images: [
-        'images/vulpis/biblioteca_local.jpeg',
-        'images/vulpis/biblioteca_drive.jpeg',
-        'images/vulpis/cola_local.jpeg'
+        '/images/vulpis/biblioteca_local.jpeg',
+        '/images/vulpis/biblioteca_drive.jpeg',
+        '/images/vulpis/cola_local.jpeg'
       ],
       selectedImageIndex: 0,
       repository: 'https://github.com/AnthoFu/Vulpis'
@@ -86,9 +86,9 @@ export class ProjectService {
       },
       technologies: ['TypeScript', 'Node.js', 'Discord.js', 'MongoDB', 'Mongoose'],
       images: [
-        'images/anthocito/anthocito_banner.png', 
-        'images/anthocito/anthocito_help.png',
-        'images/anthocito/anthocito_new_order.png'
+        '/images/anthocito/anthocito_banner.png', 
+        '/images/anthocito/anthocito_help.png',
+        '/images/anthocito/anthocito_new_order.png'
       ],
       selectedImageIndex: 0,
       repository: 'https://github.com/anthofu/anthocito'
@@ -111,8 +111,9 @@ export class ProjectService {
       },
       technologies: ["NestJS", "PostgreSQL", "TypeORM", "Socket.io", "Passport", "JWT", "TypeScript", "Vite"],
       images: [
-        "images/anthofu_chatter/anthofu_chatter_login.png", 
-        "images/anthofu_chatter/anthofu_chatter_chat.png",],
+        "/images/anthofu_chatter/anthofu_chatter_login.png", 
+        "/images/anthofu_chatter/anthofu_chatter_chat.png"
+      ],
       selectedImageIndex: 0,
       repository: "https://github.com/AnthoFu/04-teslo-shop",
       liveDemo: "https://anthofu-chatter.netlify.app"
@@ -135,10 +136,10 @@ export class ProjectService {
       },
       technologies: ['React Native', 'TypeScript', 'Zustand', 'Expo', 'Reanimated'],
       images: [
-        'images/financiame/banner_financiame.png',
-        'images/financiame/screenshot-home.jpg', 
-        'images/financiame/screenshot-billeteras.jpg', 
-        'images/financiame/screenshot-metas.jpg'
+        '/images/financiame/banner_financiame.png',
+        '/images/financiame/screenshot-home.jpg', 
+        '/images/financiame/screenshot-billeteras.jpg', 
+        '/images/financiame/screenshot-metas.jpg'
       ],
       selectedImageIndex: 0,
       repository:'https://github.com/AnthoFu/FinanciaMe',
@@ -161,9 +162,9 @@ export class ProjectService {
       },
       technologies: ['Angular 17', 'TypeScript', 'REST API', 'Signals', 'Vercel'],
       images: [
-        'images/anthos_shop/anthos_shop_products.png',
-        'images/anthos_shop/anthos_shop_cart.png',
-        'images/anthos_shop/anthos_shop_detail.png',
+        '/images/anthos_shop/anthos_shop_products.png',
+        '/images/anthos_shop/anthos_shop_cart.png',
+        '/images/anthos_shop/anthos_shop_detail.png',
       ],
       selectedImageIndex: 0,
       liveDemo: 'https://anthofu-ecommerce.vercel.app',
@@ -186,9 +187,9 @@ export class ProjectService {
       },
       technologies: ['HTML5', 'CSS', 'JavaScript', 'Meta API', 'Project Management'],
       images: [
-        'images/unexca_prototype/unexca_prototype_home.png', 
-        'images/unexca_prototype/unexca_prototype_nucleos.png',
-        'images/unexca_prototype/unexca_prototype_programas_academicos.png'
+        '/images/unexca_prototype/unexca_prototype_home.png', 
+        '/images/unexca_prototype/unexca_prototype_nucleos.png',
+        '/images/unexca_prototype/unexca_prototype_programas_academicos.png'
       ],
       selectedImageIndex: 0,
       liveDemo: 'https://unexca-website.netlify.app'
@@ -210,9 +211,9 @@ export class ProjectService {
       },
       technologies: ['HTML', 'CSS', 'JavaScript'],
       images: [
-        'images/portfolio_v1/portfolio_v1_home.png', 
-        'images/portfolio_v1/portfolio_v1_cards.png', 
-        'images/portfolio_v1/portfolio_v1_footer.png'
+        '/images/portfolio_v1/portfolio_v1_home.png', 
+        '/images/portfolio_v1/portfolio_v1_cards.png', 
+        '/images/portfolio_v1/portfolio_v1_footer.png'
       ],
       selectedImageIndex: 0,
       repository:'https://github.com/AnthoFu/Portfolio/tree/main/archive/legacy'
