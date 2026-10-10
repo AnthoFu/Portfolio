@@ -51,6 +51,7 @@ export class AboutComponent implements OnInit {
         { name: 'JavaScript', icon: 'devicon-javascript-plain', color: '#F7DF1E', textColor: '#000' },
         { name: 'TypeScript', icon: 'devicon-typescript-plain', color: '#3178C6', textColor: '#FFF' },
         { name: 'Python', icon: 'devicon-python-plain', color: '#3776AB', textColor: '#FFF' },
+        { name: 'PHP', icon: 'devicon-php-plain', color: '#777BB4', textColor: '#FFF' },
         { name: 'SQL', icon: 'fa-solid fa-database', color: '#336791', textColor: '#FFF' }
       ]
     },
@@ -69,8 +70,10 @@ export class AboutComponent implements OnInit {
       titleKey: 'TECH_STACK.BACKEND',
       items: [
         { name: 'Node.js', icon: 'devicon-nodejs-plain', color: '#339933', textColor: '#FFF' },
-        { name: 'Odoo', icon: 'images/logos/odoo_logo.svg', color: '#D1C4CD', textColor: '#714B67' },
-        { name: 'NestJS', icon: 'devicon-nestjs-plain', color: '#E0234E', textColor: '#FFF' }
+        { name: 'NestJS', icon: 'devicon-nestjs-plain', color: '#E0234E', textColor: '#FFF' },
+        { name: 'Laravel', icon: 'devicon-laravel-original', color: '#FF2D20', textColor: '#FFF' },
+        { name: 'Kafka', icon: 'devicon-apachekafka-original', color: '#231F20', textColor: '#FFF' },
+        { name: 'Odoo', icon: 'images/logos/odoo_logo.svg', color: '#D1C4CD', textColor: '#714B67' }
       ]
     },
     {
@@ -94,6 +97,7 @@ export class AboutComponent implements OnInit {
     {
       titleKey: 'TECH_STACK.TOOLS',
       items: [
+        { name: 'n8n', icon: 'images/logos/n8n_logo.svg', color: '#EA4B71', textColor: '#FFF' },
         { name: 'Figma', icon: 'devicon-figma-plain', color: '#F24E1E', textColor: '#FFF' },
         { name: 'Expo', icon: 'devicon-expo-original', color: '#000', textColor: '#FFF' },
         { name: 'Google Play Console', icon: 'devicon-google-plain', color: '#4285F4', textColor: '#FFF' },
