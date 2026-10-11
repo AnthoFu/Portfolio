@@ -69,5 +69,8 @@ export const EN = {
   COMMON: {
     LOADING: 'Loading...',
     BACK: 'Back'
+  },
+  EASTER_EGG: {
+    RESTORE_TOOLTIP: 'Return logo to header'
   }
 };

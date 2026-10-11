@@ -51,8 +51,76 @@
 
   .top-logo {
     z-index: 1001;
-    img {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-drag: none;
+
+    img.header-fox-img {
       height: 35px;
+      width: 35px;
+      object-fit: contain;
+      user-select: none;
+      -webkit-user-drag: none;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      &.shake-1 {
+        animation: logoWobble1 0.4s ease-in-out;
+      }
+
+      &.shake-2 {
+        animation: logoWobble2 0.35s ease-in-out;
+      }
+
+      &.shake-3 {
+        animation: logoWobble3 0.3s ease-in-out;
+      }
+
+      &.shake-4 {
+        animation: logoWobble4 0.18s infinite ease-in-out;
+      }
+    }
+
+    .logo-ghost {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 35px;
+      height: 35px;
+      border: 2px dashed rgba(243, 146, 0, 0.45);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--naranja);
+      cursor: pointer;
+      animation: ghostGlow 1.8s ease-in-out infinite alternate;
+      transition: all 0.3s ease;
+
+      &:hover {
+        border-color: var(--naranja);
+        box-shadow: 0 0 12px rgba(243, 146, 0, 0.5);
+        transform: scale(1.08);
+      }
+
+      i {
+        font-size: 13px;
+      }
     }
   }
 
@@ -306,4 +374,50 @@ main {
     i {
         color: #3b82f6 !important;
     }
+}
+
+/* ==========================================================================
+   Easter Egg: Animaciones y elementos del zorro estilo Geometry Dash
+   ========================================================================== */
+
+// Animaciones de temblor previas a la caída (Clics 1 - 4)
+@keyframes logoWobble1 {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-6deg); }
+  75% { transform: rotate(6deg); }
+}
+
+@keyframes logoWobble2 {
+  0%, 100% { transform: rotate(0deg) scale(1.05); }
+  20% { transform: rotate(-10deg) translate(-1px, 1px); }
+  40% { transform: rotate(10deg) translate(1px, -1px); }
+  60% { transform: rotate(-7deg); }
+  80% { transform: rotate(5deg); }
+}
+
+@keyframes logoWobble3 {
+  0%, 100% { transform: rotate(0deg) scale(1.1); }
+  15% { transform: rotate(-16deg) translate(-2px, 2px); }
+  35% { transform: rotate(15deg) translate(2px, -1px); }
+  55% { transform: rotate(-12deg) translate(-1px, 2px); }
+  75% { transform: rotate(9deg); }
+}
+
+@keyframes logoWobble4 {
+  0% { transform: rotate(-18deg) translate(-2px, 2px) scale(1.15); }
+  25% { transform: rotate(18deg) translate(2px, -2px) scale(1.15); }
+  50% { transform: rotate(-15deg) translate(-2px, 3px) scale(1.15); }
+  75% { transform: rotate(15deg) translate(2px, -2px) scale(1.15); }
+  100% { transform: rotate(-18deg) translate(-2px, 2px) scale(1.15); }
+}
+
+@keyframes ghostGlow {
+  0% {
+    opacity: 0.35;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 0.75;
+    transform: scale(1.04);
+  }
 }

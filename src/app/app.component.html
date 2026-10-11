@@ -5,8 +5,22 @@
     <div class="line" [ngClass]="{'open': isMenuOpen}"></div>
   </div>
 
-  <div class="top-logo">
-    <img src="images/anthofu/Anthofu_Icon.png" alt="AnthoFu Icon">
+  <div class="top-logo" 
+       (click)="onLogoClick()"
+       [class.fallen]="isFoxFallen"
+       [attr.title]="isFoxFallen ? ('EASTER_EGG.RESTORE_TOOLTIP' | translate) : null">
+    <div class="logo-ghost" *ngIf="isFoxFallen" (click)="restoreFoxFromHeader($event)">
+      <i class="fa-solid fa-arrow-rotate-left"></i>
+    </div>
+    <img #logoImg
+         src="images/anthofu/Anthofu_Icon.png" 
+         alt="AnthoFu Icon"
+         class="header-fox-img"
+         [class.shake-1]="shakeLevel === 1"
+         [class.shake-2]="shakeLevel === 2"
+         [class.shake-3]="shakeLevel === 3"
+         [class.shake-4]="shakeLevel === 4"
+         [class.hidden]="isFoxFallen">
   </div>
 
   <nav class="desktop-nav">
@@ -55,7 +69,7 @@
 
 <div class="overlay" *ngIf="isMenuOpen && !isLanguageSelectionPage" (click)="closeMenu()"></div>
 
-<div class="floating-contact" *ngIf="!isLanguageSelectionPage">
+<div class="floating-contact" *ngIf="!isLanguageSelectionPage && !isFoxFallen">
   <a href="https://github.com/AnthoFu" target="_blank" class="contact-circle">
     <i class="fa-brands fa-github"></i>
   </a>
@@ -72,3 +86,10 @@
 </main>
 
 <app-footer *ngIf="!isLanguageSelectionPage"></app-footer>
+
+<!-- Componente del minijuego Easter Egg de Geometry Dash -->
+<app-easter-egg *ngIf="isFoxFallen && !isLanguageSelectionPage"
+                #easterEggGame
+                [startPosition]="foxStartPos"
+                (closeGame)="onFoxGameClosed()">
+</app-easter-egg>

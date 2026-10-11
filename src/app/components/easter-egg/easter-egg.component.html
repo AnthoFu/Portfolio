@@ -1,0 +1,78 @@
+<!-- Suelo brillante al estilo Geometry Dash -->
+<div class="gd-floor">
+  <div class="gd-floor-line"></div>
+  <div class="gd-floor-base"></div>
+</div>
+
+<!-- Zona de salto que cubre la mitad inferior de la pantalla -->
+<div class="gd-jump-zone"
+     *ngIf="isOnGround"
+     (pointerdown)="onJumpZonePointerDown($event)"
+     (click)="onJumpZoneClick($event)">
+</div>
+
+<!-- Pista de obstáculos -->
+<div class="gd-obstacles-container" *ngIf="isOnGround">
+  <div class="gd-obstacle"
+       *ngFor="let obs of visibleObstacles; trackBy: trackObstacleById"
+       [style.left.px]="obs.x"
+       [class.double]="obs.type === 'double'">
+    <svg *ngIf="obs.type === 'single'" viewBox="0 0 28 30" class="gd-spike-svg">
+      <polygon points="14,2 26,28 2,28" class="spike-outer"/>
+      <polygon points="14,9 22,26 6,26" class="spike-inner"/>
+    </svg>
+    <svg *ngIf="obs.type === 'double'" viewBox="0 0 54 30" class="gd-spike-svg double">
+      <polygon points="14,2 26,28 2,28" class="spike-outer"/>
+      <polygon points="14,9 22,26 6,26" class="spike-inner"/>
+      <polygon points="40,2 52,28 28,28" class="spike-outer"/>
+      <polygon points="40,9 48,26 32,26" class="spike-inner"/>
+    </svg>
+  </div>
+</div>
+
+<!-- Entidad activa del zorro -->
+<div class="gd-fox-entity"
+     [ngStyle]="foxStyle"
+     [class.falling]="isFalling"
+     [class.on-ground]="isOnGround"
+     [class.jumping]="isJumping"
+     [class.returning]="isReturning"
+     [class.crashed]="isCrashed"
+     (click)="onGroundFoxClick($event)">
+  <img src="images/anthofu/Anthofu_Icon.png" alt="AnthoFu Fox Runner" class="gd-fox-img">
+  <div class="gd-fox-shadow" *ngIf="!isCrashed"></div>
+</div>
+
+<!-- Animación de impacto / explosión al chocar -->
+<div class="gd-crash-burst" *ngIf="isCrashed" [ngStyle]="crashBurstStyle">
+  <div class="crash-ring"></div>
+  <div class="crash-spark" *ngFor="let s of [1,2,3,4,5,6,7,8]"></div>
+</div>
+
+<!-- HUD superior minimalista (inspirado en Geometry Dash) -->
+<div class="gd-hud-top" *ngIf="isOnGround">
+  <!-- Izquierda: Puntuación compacta -->
+  <div class="hud-stats-group">
+    <span class="hud-stat"><span class="stat-lbl">PTS</span> {{ score }}</span>
+    <span class="hud-divider">|</span>
+    <span class="hud-stat"><span class="stat-lbl">BEST</span> {{ highScore }}</span>
+  </div>
+
+  <!-- Centro: Barra de progreso al estilo GD y porcentaje -->
+  <div class="hud-progress-group">
+    <div class="hud-progress-track">
+      <div class="hud-progress-fill" [style.width.%]="progressPercent"></div>
+    </div>
+    <span class="hud-progress-text">{{ progressPercent }}%</span>
+  </div>
+
+  <!-- Derecha: Botones compactos de audio y salida -->
+  <div class="hud-actions-group">
+    <button type="button" class="hud-btn-mini" (click)="toggleMute($event)" [attr.title]="isMuted ? 'Activar música' : 'Silenciar música'">
+      <i class="fa-solid" [ngClass]="isMuted ? 'fa-volume-xmark' : 'fa-volume-high'"></i>
+    </button>
+    <button type="button" class="hud-btn-mini hud-btn-close" (click)="requestClose($event)" title="Salir del juego">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+</div>

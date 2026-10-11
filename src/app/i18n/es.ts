@@ -69,5 +69,8 @@ export const ES = {
   COMMON: {
     LOADING: 'Cargando...',
     BACK: 'Volver'
+  },
+  EASTER_EGG: {
+    RESTORE_TOOLTIP: 'Devolver logo al header'
   }
 };
